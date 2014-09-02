@@ -18,3 +18,4 @@ patch-*
 *.sig
 linux-*/
 *.last
+*.pkg
