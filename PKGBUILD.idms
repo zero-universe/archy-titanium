@@ -1,10 +1,10 @@
-# 30.08.2014
+# 06.09.2014
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
 #pkgbase=linux-custom       # Build kernel with a different name
 _srcname=linux-3.16
-pkgver=3.16.1
+pkgver=3.16.2
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -268,17 +268,3 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha256sums=('c3927e87be4040fa8aca1b58663dc0776aaf00485604ff88a623be2f3fb07794'
-            '25f0767908e736a2388fe36810712ee3faa6c86c5255516496d5942ba1ffb451'
-            'e21a3baaed2b6ebd1e400e3a631fd06b58175345d137d51312a90bc5342fbb9b'
-            'e21a3baaed2b6ebd1e400e3a631fd06b58175345d137d51312a90bc5342fbb9b'
-            '73c287c27c2585c6d5f887e1285bf00a87f216197cf69061b643f8cfbad63d45'
-            '5e1840965a16ee92b068ccf22040cabd32b0257ed0995cf66ff007bd5502470b'
-            'faced4eb4c47c4eb1a9ee8a5bf8a7c4b49d6b4d78efbe426e410730e6267d182')
-sha256sums=('4813ad7927a7d92e5339a873ab16201b242b2748934f12cb5df9ba2cfe1d77a0'
-            'd2bf33289acf5c05b57aaca1fd8bb1935ac280c5c4090874e84806d35e17012e'
-            '97edda2f59fe95a0a1f9609c0690f5d613f1f8d30c9e49694db5fcf2d26c6668'
-            '97edda2f59fe95a0a1f9609c0690f5d613f1f8d30c9e49694db5fcf2d26c6668'
-            '73c287c27c2585c6d5f887e1285bf00a87f216197cf69061b643f8cfbad63d45'
-            'ecd4f3b0516fc8e93bfbb52e30e474e1a71227605e0fb38b3936d744dfd97ba2'
-            'faced4eb4c47c4eb1a9ee8a5bf8a7c4b49d6b4d78efbe426e410730e6267d182')
