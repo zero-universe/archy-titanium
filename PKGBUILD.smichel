@@ -1,10 +1,10 @@
-# 06.09.2014
+# 18.09.2014
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
 #pkgbase=linux-custom       # Build kernel with a different name
 _srcname=linux-3.16
-pkgver=3.16.2
+pkgver=3.16.3
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"

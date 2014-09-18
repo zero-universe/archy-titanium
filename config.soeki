@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 3.16.1 Kernel Configuration
+# Linux/x86 3.16.3 Kernel Configuration
 #
 CONFIG_64BIT=y
 CONFIG_X86_64=y
@@ -1080,7 +1080,7 @@ CONFIG_VSOCKETS=m
 CONFIG_NETLINK_MMAP=y
 CONFIG_NETLINK_DIAG=m
 # CONFIG_NET_MPLS_GSO is not set
-# CONFIG_HSR is not set
+CONFIG_HSR=m
 CONFIG_RPS=y
 CONFIG_RFS_ACCEL=y
 CONFIG_XPS=y
