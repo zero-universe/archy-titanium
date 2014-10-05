@@ -1,10 +1,10 @@
-# 18.09.2014
+# 05.10.2014
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
 #pkgbase=linux-custom       # Build kernel with a different name
 _srcname=linux-3.16
-pkgver=3.16.3
+pkgver=3.16.4
 _grsecver=3.0
 _timestamp=201406101411
 _grsec_patch="grsecurity-$_grsecver-$_pkgver-$_timestamp.patch"
@@ -284,10 +284,3 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha256sums=('4813ad7927a7d92e5339a873ab16201b242b2748934f12cb5df9ba2cfe1d77a0'
-            '3fbe03714f943605d711ff317aa52053e29bc50e63a8e6a17c2504cde1160208'
-            '4883aa80f1342a982c2dcb7196e80efc30ca19d8a711739fb15159873a27c855'
-            '4883aa80f1342a982c2dcb7196e80efc30ca19d8a711739fb15159873a27c855'
-            '73c287c27c2585c6d5f887e1285bf00a87f216197cf69061b643f8cfbad63d45'
-            '80d84a6f719aa64e9cae66c8a79080033cc90d02bdce5bfe996df79674539d90'
-            'faced4eb4c47c4eb1a9ee8a5bf8a7c4b49d6b4d78efbe426e410730e6267d182')

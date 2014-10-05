@@ -1,10 +1,10 @@
-# 18.09.2014
+# 05.10.2014
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
 #pkgbase=linux-custom       # Build kernel with a different name
 _srcname=linux-3.16
-pkgver=3.16.3
+pkgver=3.16.4
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -270,4 +270,11 @@ sha256sums=('4813ad7927a7d92e5339a873ab16201b242b2748934f12cb5df9ba2cfe1d77a0'
             'cfa305efa104f7d6f142d6cc583536c22ef686520b37904fe017d7996c57d396'
             '73c287c27c2585c6d5f887e1285bf00a87f216197cf69061b643f8cfbad63d45'
             '80d84a6f719aa64e9cae66c8a79080033cc90d02bdce5bfe996df79674539d90'
+            'faced4eb4c47c4eb1a9ee8a5bf8a7c4b49d6b4d78efbe426e410730e6267d182')
+sha256sums=('4813ad7927a7d92e5339a873ab16201b242b2748934f12cb5df9ba2cfe1d77a0'
+            'bfd65be726f596c0e46f472efa33c46c01be5d44ed93ef645c313a6823e6e6fb'
+            'cfa305efa104f7d6f142d6cc583536c22ef686520b37904fe017d7996c57d396'
+            'cfa305efa104f7d6f142d6cc583536c22ef686520b37904fe017d7996c57d396'
+            '73c287c27c2585c6d5f887e1285bf00a87f216197cf69061b643f8cfbad63d45'
+            '769ab497a27baac6b8102d0989c6fd4661cdf16b61b218c369f11bc9b9d8699f'
             'faced4eb4c47c4eb1a9ee8a5bf8a7c4b49d6b4d78efbe426e410730e6267d182')
