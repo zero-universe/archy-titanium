@@ -1,10 +1,10 @@
-# 06.10.2014
+# 17.10.2014
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
 #pkgbase=linux-custom       # Build kernel with a different name
 _srcname=linux-3.17
-pkgver=3.17.0
+pkgver=3.17.1
 _grsecver=3.0
 _timestamp=201406101411
 _grsec_patch="grsecurity-$_grsecver-$_pkgver-$_timestamp.patch"
@@ -15,7 +15,7 @@ license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
-#        "https://www.kernel.org/pub/linux/kernel/v3.x/patch-${pkgver}.xz"
+        "https://www.kernel.org/pub/linux/kernel/v3.x/patch-${pkgver}.xz"
 #        "https://grsecurity.net/test/$_grsec_patch"
 #        "https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
@@ -40,7 +40,7 @@ prepare() {
   #cp ${startdir}/logo_linux_*.p?m drivers/video/logo/
 
   # add upstream patch
-#  patch -p1 -i "${srcdir}/patch-${pkgver}"
+  patch -p1 -i "${srcdir}/patch-${pkgver}"
 
   # add latest fixes from stable queue, if needed
   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
@@ -280,8 +280,9 @@ done
 
 # vim:set ts=8 sts=2 sw=2 et:
 sha256sums=('f5153ec93c5fcd41b247950e6a9bcbc63fa87beafd112c133a622439a0f76251'
-            '77945ec097f4cd3b92e4588bd639de4d661fc0e6e939b077cd72ae2fb27f98e5'
-            '77945ec097f4cd3b92e4588bd639de4d661fc0e6e939b077cd72ae2fb27f98e5'
+            '3b0651951cdc0a81a69b46db99239bc9f00d6a5ae403e0e41c7a1cc177544ec2'
+            '10512d885ca9092bd4cb3b6fe5029c62662d8a3246814a12d5afd1c2212fa1fa'
+            '10512d885ca9092bd4cb3b6fe5029c62662d8a3246814a12d5afd1c2212fa1fa'
             '73c287c27c2585c6d5f887e1285bf00a87f216197cf69061b643f8cfbad63d45'
-            'f24787c9af625df13d8b50eaf46b0a543e4f60a8f9ca86488c4602d8adfc9fdf'
+            '6813dc1c8ca80e8c72afa8587a61b172f902ea9a2dcee07906e4ed4d1dc38ed3'
             'faced4eb4c47c4eb1a9ee8a5bf8a7c4b49d6b4d78efbe426e410730e6267d182')
