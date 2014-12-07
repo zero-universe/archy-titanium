@@ -1,10 +1,10 @@
-# 23.11.2014
+# 07.12.2014
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
 #pkgbase=linux-custom       # Build kernel with a different name
 _srcname=linux-3.17
-pkgver=3.17.4
+pkgver=3.17.5
 _grsecver=3.0
 _timestamp=201406101411
 _grsec_patch="grsecurity-$_grsecver-$_pkgver-$_timestamp.patch"
@@ -279,11 +279,10 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-
 sha512sums=('29c99764e371f7005dbbe2bbe4458b4deeae5297da7e5b719b0f29f6f018629338b608369162ae6bd76bec4d8719cf491257ac57fdd5277cce8941b7f90246a0'
-            'aa722cf47374ab58c022ddc1dd8c2273eca4f3776139b8fb2ac61dc114ff13ac667b22427c0857ab9a2cf117b5c4d52352ae8fe9d26a30c9b48c860f93f75ce6'
+            'bc3aae9642204fb1e19c67a525e34a2ef02aeda3b6ef59e3c7aeb83f686cc9b6e359984a0e1b9e0a998864a5e8da422bd9efe26ceafdf5e3b180151ec4d88ca1'
             'd2c3558914fb040557e49e6a3bafaa0077e37a4c83f42be7ea9467b048ca8e0810ac3820d0ad26a60fe4095e83989dc558660524d2bd2d9c2a1b6ddac070cf0b'
             'd2c3558914fb040557e49e6a3bafaa0077e37a4c83f42be7ea9467b048ca8e0810ac3820d0ad26a60fe4095e83989dc558660524d2bd2d9c2a1b6ddac070cf0b'
             '51c1f972aa35ceb6879e0f2bb18cb78c2959d1dd129e67c4bd96aa07a350c983ca3b1760446ef417948f462647fbface3fe1f98ab666e346f4f3f7b9a9fc9054'
-            '52a107ff6147b2ff9ecec96fa8bfc866454bb125996ad68fe73c949123b1b8e6eb4c420c7083ed4531a807a3dc380117b4fe163433c0ada7a8e25f57d3083552'
+            '4c3c5f24b4621c79fc8af1f5a98bd23266c8bc4470ab01bf0d0de4e5dafb161c22249de25212e4c469c5b708545c0a3ba07a47a6b3cd672251060c7103991d48'
             '502192b5ce94c8254205f5ddb85bf50c5f1e78c768817b10dca3a7716a8c59d5e093842631acb51e3805cbf85522e0a9200942656f11bbb4ea1b7d61e24ddd78')
