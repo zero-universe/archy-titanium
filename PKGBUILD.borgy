@@ -1,10 +1,10 @@
-# 07.12.2014
+# 08.12.2014
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
 #pkgbase=linux-custom       # Build kernel with a different name
 _srcname=linux-3.17
-pkgver=3.17.5
+pkgver=3.17.6
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -258,10 +258,10 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha512sums=('29c99764e371f7005dbbe2bbe4458b4deeae5297da7e5b719b0f29f6f018629338b608369162ae6bd76bec4d8719cf491257ac57fdd5277cce8941b7f90246a0'
-            'bc3aae9642204fb1e19c67a525e34a2ef02aeda3b6ef59e3c7aeb83f686cc9b6e359984a0e1b9e0a998864a5e8da422bd9efe26ceafdf5e3b180151ec4d88ca1'
-            'af21d7bdf691034f1eb53abb59aad9cb5153b99882f265140b09835cf08293f443a54b4a52ac77d544881243b64ea073022f907bde08c7f7b381a800337236ab'
-            'af21d7bdf691034f1eb53abb59aad9cb5153b99882f265140b09835cf08293f443a54b4a52ac77d544881243b64ea073022f907bde08c7f7b381a800337236ab'
-            '51c1f972aa35ceb6879e0f2bb18cb78c2959d1dd129e67c4bd96aa07a350c983ca3b1760446ef417948f462647fbface3fe1f98ab666e346f4f3f7b9a9fc9054'
-            '4c3c5f24b4621c79fc8af1f5a98bd23266c8bc4470ab01bf0d0de4e5dafb161c22249de25212e4c469c5b708545c0a3ba07a47a6b3cd672251060c7103991d48'
-            '502192b5ce94c8254205f5ddb85bf50c5f1e78c768817b10dca3a7716a8c59d5e093842631acb51e3805cbf85522e0a9200942656f11bbb4ea1b7d61e24ddd78')
+sha256sums=('f5153ec93c5fcd41b247950e6a9bcbc63fa87beafd112c133a622439a0f76251'
+            '30d8e0da16ac7cc8be13cd6da72ddc487e8c24fb662caf69da7f6d375fdc1aab'
+            '43a90c5dbf17b68920ff06689f98b28c4139d5fc620415c7b7ea4eb33e903aa4'
+            '43a90c5dbf17b68920ff06689f98b28c4139d5fc620415c7b7ea4eb33e903aa4'
+            '73c287c27c2585c6d5f887e1285bf00a87f216197cf69061b643f8cfbad63d45'
+            '47e9a22e9b4082d4dc9fb89772b8193f23b7aff5dfc45b5df844ccf3e7e2b6cd'
+            'faced4eb4c47c4eb1a9ee8a5bf8a7c4b49d6b4d78efbe426e410730e6267d182')
