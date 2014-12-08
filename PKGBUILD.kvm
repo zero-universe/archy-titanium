@@ -19,8 +19,7 @@ source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
         "https://grsecurity.net/test/$_grsec_patch"
         "https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
-        'config.soeki' 'config.x86_64.soeki'
-        #'config.soeki.grsec' 'config.x86_64.soeki.grsec'
+        'config.kvm' 'config.x86_64.kvm'
         # standard config files for mkinitcpio ramdisk
         'linux-titanium.preset' 'linux-titanium.install'
         'change-default-console-loglevel.patch'
@@ -49,18 +48,16 @@ prepare() {
   # set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
   # remove this when a Kconfig knob is made available by upstream
   # (relevant patch sent upstream: https://lkml.org/lkml/2011/7/26/227)
-  #patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
+  patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
 
   # Add grsecurity patches
-#  patch -Np1 -i "$srcdir/$_grsec_patch"
+  patch -Np1 -i "$srcdir/$_grsec_patch"
 #  rm localversion-grsec
 
   if [ "${CARCH}" = "x86_64" ]; then
-    cat "${srcdir}/config.x86_64.soeki" > ./.config
-    #cat "${srcdir}/config.x86_64.soeki.grsec" > ./.config
+    cat "${srcdir}/config.x86_64.kvm" > ./.config
   else
-    cat "${srcdir}/config.soeki" > ./.config
-    #cat "${srcdir}/config.soeki.grsec" > ./.config
+    cat "${srcdir}/config.kvm" > ./.config
   fi
 
   if [ "${_kernelname}" != "" ]; then
@@ -282,14 +279,3 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-
-
-sha512sums=('29c99764e371f7005dbbe2bbe4458b4deeae5297da7e5b719b0f29f6f018629338b608369162ae6bd76bec4d8719cf491257ac57fdd5277cce8941b7f90246a0'
-            'a6e6dd8224355c8f20843f6ee923e27a1c4794268cce212c9dc9a431d0376da9887161d2924a447007650bf98822a08da4c0f1b76ec8d2bf7c2a1f81b5908d9e'
-            '521ccc613352294fb3aab0b5856ffe1c9fde914517c1fbc86aabf4a608430a33f30c677cc27a95de5abc91b87b3ae50f44776a3c29b54d1f2a26621ecb695c6e'
-            'SKIP'
-            'd2c3558914fb040557e49e6a3bafaa0077e37a4c83f42be7ea9467b048ca8e0810ac3820d0ad26a60fe4095e83989dc558660524d2bd2d9c2a1b6ddac070cf0b'
-            'd2c3558914fb040557e49e6a3bafaa0077e37a4c83f42be7ea9467b048ca8e0810ac3820d0ad26a60fe4095e83989dc558660524d2bd2d9c2a1b6ddac070cf0b'
-            '51c1f972aa35ceb6879e0f2bb18cb78c2959d1dd129e67c4bd96aa07a350c983ca3b1760446ef417948f462647fbface3fe1f98ab666e346f4f3f7b9a9fc9054'
-            '569e2b78e88f388bc326b1de45f1140fc9911db4d9abe7ace453a666a49e5be04cb8b06cde8a14bb2b0a8c6388d600e84fe69cc7bd10a7951c6a87e5684458c1'
-            '502192b5ce94c8254205f5ddb85bf50c5f1e78c768817b10dca3a7716a8c59d5e093842631acb51e3805cbf85522e0a9200942656f11bbb4ea1b7d61e24ddd78')
