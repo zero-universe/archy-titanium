@@ -1,10 +1,10 @@
-# 08.12.2014
+# 18.12.2014
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
 #pkgbase=linux-custom       # Build kernel with a different name
 _srcname=linux-3.17
-pkgver=3.17.6
+pkgver=3.17.7
 _grsecver=3.0
 _timestamp=201412071639
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"

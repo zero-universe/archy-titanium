@@ -1,10 +1,10 @@
-# 08.12.2014
+# 18.12.2014
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
 #pkgbase=linux-custom       # Build kernel with a different name
 _srcname=linux-3.17
-pkgver=3.17.6
+pkgver=3.17.7
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -258,10 +258,3 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha256sums=('f5153ec93c5fcd41b247950e6a9bcbc63fa87beafd112c133a622439a0f76251'
-            '30d8e0da16ac7cc8be13cd6da72ddc487e8c24fb662caf69da7f6d375fdc1aab'
-            '43a90c5dbf17b68920ff06689f98b28c4139d5fc620415c7b7ea4eb33e903aa4'
-            '43a90c5dbf17b68920ff06689f98b28c4139d5fc620415c7b7ea4eb33e903aa4'
-            '73c287c27c2585c6d5f887e1285bf00a87f216197cf69061b643f8cfbad63d45'
-            '47e9a22e9b4082d4dc9fb89772b8193f23b7aff5dfc45b5df844ccf3e7e2b6cd'
-            'faced4eb4c47c4eb1a9ee8a5bf8a7c4b49d6b4d78efbe426e410730e6267d182')
