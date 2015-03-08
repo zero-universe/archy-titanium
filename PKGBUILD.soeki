@@ -1,12 +1,12 @@
-# 18.02.2015
+# 08.03.2015
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
 #pkgbase=linux-custom       # Build kernel with a different name
 _srcname=linux-3.18
-pkgver=3.18.7
-_grsecver=3.0
-_timestamp=201502180834
+pkgver=3.18.9
+_grsecver=3.1
+_timestamp=201503071142
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 pkgrel=1
 arch=('i686' 'x86_64')
@@ -17,6 +17,7 @@ options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v3.x/patch-${pkgver}.xz"
         "https://grsecurity.net/test/$_grsec_patch"
+        #http://grsecurity.net/test/grsecurity-3.1-3.18.8-201502271843.patch
         "https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
         #'config.soeki' 'config.x86_64.soeki'
@@ -283,11 +284,11 @@ done
 
 # vim:set ts=8 sts=2 sw=2 et:
 sha512sums=('2f0b72466e9bc538a675738aa416573d41bbbd7e3e2ffd5b5b127afde609ebc278cec5a3c37e73479607e957c13f1b4ed9782a3795e0dcc2cf8e550228594009'
-            'a63f56818a3d16f7e39b9967ed751fd6f49837668d533e32ae5bbad7f834e0f3641d9829c27acaf7e65b10581dd1e7d15a05127550627edcd7f9ec7fb5780600'
-            '8b15a62bb7100f73569a75eca572df3b61b179aaae7b69c86ce283f166168eb70668bec16f06deb141664c627625e81555f6c4c2bae73488cbfb1a8422009d31'
+            'dd8f8c2a88b41e4907c213d3d7bc646f1291b4358ad5a840b652286ac67023f9cac119714b68cb00b295fe80b7efb5dc2b5b4af35f01bbcaa7357f877dad3a72'
+            '7af8713508ae9c22e5f65c59254fd0d4da9e2b278eddaf7fdc20580f6e02b2d2e611ce512e34f3859be4447aaab068bc0c47d0cdf67259b0042dd5b4c1b7338b'
             'SKIP'
             '7e6c43a33bac38d64fb677b2a89cf5e0d6175298dcc503d231481673afe4a0041145f2ec2068b29e2ad52de85b8a951a67137b1f679454ade9bd84c31e355e7e'
             '7e6c43a33bac38d64fb677b2a89cf5e0d6175298dcc503d231481673afe4a0041145f2ec2068b29e2ad52de85b8a951a67137b1f679454ade9bd84c31e355e7e'
             '51c1f972aa35ceb6879e0f2bb18cb78c2959d1dd129e67c4bd96aa07a350c983ca3b1760446ef417948f462647fbface3fe1f98ab666e346f4f3f7b9a9fc9054'
-            'bc2adb780d0453c62e0f96a7bf33124c77d4c96713f47cefd4c5729b9b8ca9cb9e9d36492500295fb30968748a2c63bc76d4b0f40cbcfdc3746ec3942d82594b'
+            '4c0d269715298bd5483768e9d8997e1d6cfcc0b0f38aba15af93782259b55a6c7741b88b888adb8dbb94b95f39afb313b0d97f24e3beb57fa00d57cf59ebcc97'
             '502192b5ce94c8254205f5ddb85bf50c5f1e78c768817b10dca3a7716a8c59d5e093842631acb51e3805cbf85522e0a9200942656f11bbb4ea1b7d61e24ddd78')
