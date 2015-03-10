@@ -1,10 +1,10 @@
-# 08.03.2015
+# 10.03.2015
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
 #pkgbase=linux-custom       # Build kernel with a different name
-_srcname=linux-3.18
-pkgver=3.18.9
+_srcname=linux-3.19
+pkgver=3.19.1
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -43,7 +43,7 @@ prepare() {
   # set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
   # remove this when a Kconfig knob is made available by upstream
   # (relevant patch sent upstream: https://lkml.org/lkml/2011/7/26/227)
-  #patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
+  patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
 
   if [ "${CARCH}" = "x86_64" ]; then
     cat "${srcdir}/config.x86_64.borgy" > ./.config
