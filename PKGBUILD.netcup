@@ -49,7 +49,7 @@ prepare() {
   # set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
   # remove this when a Kconfig knob is made available by upstream
   # (relevant patch sent upstream: https://lkml.org/lkml/2011/7/26/227)
-  patch -Np1 -i "${srcdir}/change-default-console-loglevel.patch"
+  #patch -Np1 -i "${srcdir}/change-default-console-loglevel.patch"
 
   # Add grsecurity patches
   patch -Np1 -i "$srcdir/$_grsec_patch"
@@ -283,3 +283,12 @@ done
 
 # vim:set ts=8 sts=2 sw=2 et:
 
+sha512sums=('d77bfd9b1cd524ac50bb5a93808955be2f9bcd2ec0badcc8aa6a63401e212f891fd14bd27c6441174ba5d70ab875b9e76c7ebc95f046e31aff1d40790d30351c'
+            'cfedc5b622fb4c0c9438739e3b0b756963250e2f80090603985c1d8c0a3b1638cb2abc927aafd69f9a611ed1f3f5994672d7fea6cbdfc788411612b2de460c73'
+            '5a2724d1003b4aed3d4385f604d2f0676b0735ce8b99d8f4c24047fe75e55525c87199adecb2c183932b83bd76c52f7ac78d3725295e42bbe90db42fde767e54'
+            'SKIP'
+            'c7acc8e8f1588590f55bfa1ab4835b16c4730cd4d072caac655353857d3b41af7dc0e3e504d6f236f6be6adc8e2d7055b4296c358080374feaf7a4d31f3311ac'
+            'c7acc8e8f1588590f55bfa1ab4835b16c4730cd4d072caac655353857d3b41af7dc0e3e504d6f236f6be6adc8e2d7055b4296c358080374feaf7a4d31f3311ac'
+            '51c1f972aa35ceb6879e0f2bb18cb78c2959d1dd129e67c4bd96aa07a350c983ca3b1760446ef417948f462647fbface3fe1f98ab666e346f4f3f7b9a9fc9054'
+            'aa71e1530bb642f14f07bebcbbc1ac73b59fc3355935e1e67c61347e78e22b83205d1163b8028ec0f9f33bfee813dd4b43bc25bfc4a2d1495386c789f7a2424a'
+            '502192b5ce94c8254205f5ddb85bf50c5f1e78c768817b10dca3a7716a8c59d5e093842631acb51e3805cbf85522e0a9200942656f11bbb4ea1b7d61e24ddd78')
