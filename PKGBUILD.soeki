@@ -1,13 +1,13 @@
-# 28.04.2015
+# 30.04.2015
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
 #pkgbase=linux-custom       # Build kernel with a different name
 _srcname=linux-3.19
-pkgver=3.19.5
+pkgver=3.19.6
 pkgrel=1
 _grsecver=3.1
-_timestamp=201504270827
+_timestamp=201504290821
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 pkgrel=1
 arch=('i686' 'x86_64')
@@ -284,11 +284,11 @@ done
 
 # vim:set ts=8 sts=2 sw=2 et:
 sha512sums=('d77bfd9b1cd524ac50bb5a93808955be2f9bcd2ec0badcc8aa6a63401e212f891fd14bd27c6441174ba5d70ab875b9e76c7ebc95f046e31aff1d40790d30351c'
-            '11ebad2372b34b4f2f1636abe212660ace6af83adebb9935cb9aa6430d14b90b8ec1b1ba1844bc1ddce802d42bbf26d8e3aa14d4a86b25fe61dc5551624f5598'
-            '03f7b3e770ed0c6b2659ea1a0ac50a4e7c0e0426feb3425caa2bd6c8d0b074debd1437d3ce4d99dc72d8685dada8a87a08eb153eaf4c4e627458bc3a0c1d59fc'
+            '871d5a8a1588e0c2d313802a89bdc52d7fc2ba84d731f01c7a07fe941ae311696043ce07b85483821cf2ece910119d59ce6c432f78db51ff0c80cfa46c24842f'
+            '05ccd905a63b5a54f0ef757e7b99ed1c8a4bf7f8ce6f4e72dba41d6b6f4ae1cec07a61f2dc7400a42daceb8be6085e706decae96b9594fc6f324422873d883be'
             'SKIP'
             '38360376395d0714adf15cf2b09e95c2cce6a8e82edd549e080a7eb53a3f43f9278e79f9243b9f6023ebcedb46ef449bd27cf896927b66eb1a9e7ea9f3ebda3c'
             '38360376395d0714adf15cf2b09e95c2cce6a8e82edd549e080a7eb53a3f43f9278e79f9243b9f6023ebcedb46ef449bd27cf896927b66eb1a9e7ea9f3ebda3c'
             '51c1f972aa35ceb6879e0f2bb18cb78c2959d1dd129e67c4bd96aa07a350c983ca3b1760446ef417948f462647fbface3fe1f98ab666e346f4f3f7b9a9fc9054'
-            'a38bc871b11493f7225d6e5d415dd8da10ecb61c809717f4f1ff5f038a199440f95e508307af5ad14b8213217811fac15168130ee9b3b2ad253c1e42ec9e1369'
+            '7cb3d9eb0f7440a7946a67bb1a113b22bc881e299cc89877933aa26c6c097949a418871abb9cfb279b0c111cc47b7f81455903332b28be5cb42072756ad995e6'
             '502192b5ce94c8254205f5ddb85bf50c5f1e78c768817b10dca3a7716a8c59d5e093842631acb51e3805cbf85522e0a9200942656f11bbb4ea1b7d61e24ddd78')
