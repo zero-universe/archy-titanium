@@ -9,7 +9,7 @@ pkgrel=1
 _grsecver=3.1
 _timestamp=201505072057
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
-#_grsec_patch="grsecurity-$_grsecver-3.19.5-$_timestamp.patch"
+#_grsec_patch="grsecurity-$_grsecver-4.0.2-$_timestamp.patch"
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -283,3 +283,4 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
+
