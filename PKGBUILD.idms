@@ -6,13 +6,19 @@ pkgbase=linux-titanium      # Build -titanium kernel
 _srcname=linux-4.0
 pkgver=4.0.4
 pkgrel=1
-arch=('i686' 'x86_64')
+_grsecver=3.1
+_timestamp=201505182014
+_grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
+pkgrel=1
+arch=('x86_64')
 url="http://www.kernel.org/"
 license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
-source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
-        "https://www.kernel.org/pub/linux/kernel/v3.x/patch-${pkgver}.xz"
+source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
+        "https://grsecurity.net/test/$_grsec_patch"
+        "https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
         'config.idms' 'config.x86_64.idms'
         # standard config files for mkinitcpio ramdisk
@@ -30,9 +36,9 @@ prepare() {
   make mrproper
 
   # Arch linux logo
-  msg "Replacing penguins with arches"
+  #msg "Replacing penguins with arches"
   #bzip2 -dk ${startdir}/logo_linux_*.bz2
-  cp ${startdir}/logo_linux_*.p?m drivers/video/logo/
+  #cp ${startdir}/logo_linux_*.p?m drivers/video/logo/
 
   # add upstream patch
   patch -p1 -i "${srcdir}/patch-${pkgver}"
@@ -44,6 +50,10 @@ prepare() {
   # remove this when a Kconfig knob is made available by upstream
   # (relevant patch sent upstream: https://lkml.org/lkml/2011/7/26/227)
   #patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
+
+  # Add grsecurity patches
+  patch -Np1 -i "$srcdir/$_grsec_patch"
+  rm localversion-grsec
 
   # fix saa7134 video
   # https://bugs.archlinux.org/task/39904
@@ -263,3 +273,13 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
+
+sha256sums=('0f2f7d44979bc8f71c4fc5d3308c03499c26a824dd311fdf6eef4dee0d7d5991'
+            'c268985a82483fe75f0f397217208e262f85a356d1d9f34b9e22255e549d7ce9'
+            '5e098d6ed12ec7926b7a2697fde24ccfabd5ca81de486fc81d257fbf3e003ad0'
+            'SKIP'
+            'b256155239ce3c5f7bb1a8b5f73a7bc7008f99886cec7bebff65be06eeda749a'
+            'b256155239ce3c5f7bb1a8b5f73a7bc7008f99886cec7bebff65be06eeda749a'
+            '73c287c27c2585c6d5f887e1285bf00a87f216197cf69061b643f8cfbad63d45'
+            '91e0730df1759698f5b5aea64acd1693c3616b1569b874ace4dbe53085636984'
+            'faced4eb4c47c4eb1a9ee8a5bf8a7c4b49d6b4d78efbe426e410730e6267d182')
