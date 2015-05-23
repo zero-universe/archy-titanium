@@ -1,4 +1,4 @@
-# 17.05.2015
+# 2.05.2015
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
@@ -6,13 +6,17 @@ pkgbase=linux-titanium      # Build -titanium kernel
 _srcname=linux-4.0
 pkgver=4.0.4
 pkgrel=1
-arch=('i686' 'x86_64')
+_grsecver=3.1
+_timestamp=201505182014
+_grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
+pkgrel=1
+arch=('x86_64')
 url="http://www.kernel.org/"
 license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
-source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
-        "https://www.kernel.org/pub/linux/kernel/v3.x/patch-${pkgver}.xz"
+source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
         # the main kernel config files
         'config.borgy' 'config.x86_64.borgy'
         # standard config files for mkinitcpio ramdisk
@@ -43,7 +47,11 @@ prepare() {
   # set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
   # remove this when a Kconfig knob is made available by upstream
   # (relevant patch sent upstream: https://lkml.org/lkml/2011/7/26/227)
-  #patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
+  patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
+
+  # Add grsecurity patches
+  #patch -Np1 -i "$srcdir/$_grsec_patch"
+  #rm localversion-grsec
 
   if [ "${CARCH}" = "x86_64" ]; then
     cat "${srcdir}/config.x86_64.borgy" > ./.config
@@ -258,3 +266,10 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
+sha512sums=('ce13d2c1c17908fd9a4aa42bb6348a0cb13dd22e560bd54c61b8bfdf62726d6095f130c59177a2fe4793b7dc399481bf10d3556d1d571616000f180304e5a995'
+            '403a0c9a4bee314cd0f46f3d9bf9122e61d02ff4f9b91027b44718beb5ba2970fdec665f189ba89bd169984a96120f1478ebbf4eaa9872939c11b6b5024c5bb7'
+            '62d1a3e2a4192ed74aaf8f6a2874379fe2776ca4d3e11e49776643ebe70df6b4777e09b7f80dc122b8f501d4346bfaecfb792133c17871bfd9e671632dc9ab50'
+            '62d1a3e2a4192ed74aaf8f6a2874379fe2776ca4d3e11e49776643ebe70df6b4777e09b7f80dc122b8f501d4346bfaecfb792133c17871bfd9e671632dc9ab50'
+            '51c1f972aa35ceb6879e0f2bb18cb78c2959d1dd129e67c4bd96aa07a350c983ca3b1760446ef417948f462647fbface3fe1f98ab666e346f4f3f7b9a9fc9054'
+            '7a07d4323bcd9e41db8bf01cbda82592dcca7d4095aae37a52c041d104357ee455826972787e3b25e9b06a08aee7a559b8f1af2f008ff37c65b6516346102b16'
+            'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8')

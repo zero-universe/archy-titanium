@@ -1,14 +1,14 @@
-# 17.05.2015
+# 2.05.2015
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
 #pkgbase=linux-custom       # Build kernel with a different name
 _srcname=linux-4.0
 pkgver=4.0.4
-pkgrel=1
 _grsecver=3.1
-_timestamp=201505171737
+_timestamp=201505182014
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
+pkgrel=1
 #_grsec_patch="grsecurity-$_grsecver-4.0.2-$_timestamp.patch"
 pkgrel=1
 arch=('i686' 'x86_64')
@@ -54,7 +54,7 @@ prepare() {
 
   # Add grsecurity patches
   patch -Np1 -i "$srcdir/$_grsec_patch"
-  #rm localversion-grsec
+  rm localversion-grsec
 
   if [ "${CARCH}" = "x86_64" ]; then
     #cat "${srcdir}/config.x86_64.netcup" > ./.config
