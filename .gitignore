@@ -16,6 +16,7 @@ PKGBUILD
 patch-*
 *.patch
 *.sig
+*.sign
 linux-*/
 *.last
 *.pkg
