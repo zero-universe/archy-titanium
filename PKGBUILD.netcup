@@ -8,8 +8,8 @@ pkgver=4.0.5
 pkgrel=1
 _grsecver=3.1
 _timestamp=201506082251
-#_grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
-_grsec_patch="grsecurity-$_grsecver-4.0.4-$_timestamp.patch"
+_grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
+#_grsec_patch="grsecurity-$_grsecver-4.0.4-$_timestamp.patch"
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -283,3 +283,12 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
+sha256sums=('0f2f7d44979bc8f71c4fc5d3308c03499c26a824dd311fdf6eef4dee0d7d5991'
+            '60b691210a9e412710e29eac6468d64b6c4d1efc53a6e22878dd51044001adf0'
+            '93c3bdb68815ceed71550b73e9fe4094c71da28fa5b5bc7b73c68a85f003350e'
+            'SKIP'
+            '654f80833ac82daa5a4f2d7b354dab1b948cd9e93f24e7ca76f056e9094eb506'
+            '7c2f45ceb477cd214f03d3a3d3b4be67d7dac3783dfaca5e8a88a871d72fba83'
+            '73c287c27c2585c6d5f887e1285bf00a87f216197cf69061b643f8cfbad63d45'
+            '800a3338685dca8c2eaf1b6b61379344a04004aedf02c6213691fa4043241315'
+            '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99')
