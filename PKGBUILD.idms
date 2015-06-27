@@ -1,4 +1,4 @@
-# 24.06.2015
+# 27.06.2015
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
@@ -7,7 +7,7 @@ _srcname=linux-4.0
 pkgver=4.0.6
 pkgrel=1
 _grsecver=3.1
-_timestamp=201506232104
+_timestamp=201506262047
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 pkgrel=1
 arch=('x86_64')
@@ -273,12 +273,3 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha256sums=('0f2f7d44979bc8f71c4fc5d3308c03499c26a824dd311fdf6eef4dee0d7d5991'
-            'd65b0bc24bf49cb333375f7c301c28b05a554bc03a5fc4ed751b4f05bc13e97d'
-            'aeb95b592e633a8f1785c433d244221d2931b3bebbbabde2298843505d203542'
-            'SKIP'
-            'fbe55247ebde7de9a18000c671ce0e36bf01fbff8e14dc64e9c35899757c821b'
-            'fbe55247ebde7de9a18000c671ce0e36bf01fbff8e14dc64e9c35899757c821b'
-            '73c287c27c2585c6d5f887e1285bf00a87f216197cf69061b643f8cfbad63d45'
-            '6a708861833defcc922743f123b99249c16bf209a07c93eb71791f3fa4ec081f'
-            '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99')
