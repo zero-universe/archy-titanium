@@ -1,10 +1,10 @@
-# 14.09.2015
+# 08.10.2015
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
 #pkgbase=linux-custom       # Build kernel with a different name
-_srcname=linux-4.1
-pkgver=4.1.7
+_srcname=linux-4.2
+pkgver=4.2.3
 pkgrel=1
 arch=('i686')
 url="http://www.kernel.org/"
