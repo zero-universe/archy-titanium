@@ -6,6 +6,9 @@ pkgbase=linux-titanium      # Build -titanium kernel
 _srcname=linux-4.3
 pkgver=4.3.4
 pkgrel=1
+_grsecver=3.1
+_timestamp=201601231215
+_grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 arch=('i686')
 url="http://www.kernel.org/"
 license=('GPL2')
@@ -13,12 +16,13 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v3.x/patch-${pkgver}.xz"
-        # the main kernel config files
-        'config.smichel' 'config.smichel.grsec'
+		"https://grsecurity.net/test/$_grsec_patch"
+		"https://grsecurity.net/test/${_grsec_patch}.sig"
+		# the main kernel config files
+        "config.smichel" "config.smichel.grsec"
         # standard config files for mkinitcpio ramdisk
-        'linux-titanium.preset' 'linux-titanium.install'
-        'change-default-console-loglevel.patch'
-        '0012-fix-saa7134.patch'
+        "linux-titanium.preset" "linux-titanium.install"
+        "change-default-console-loglevel.patch"
         )
 
 _kernelname=${pkgbase#linux}
@@ -31,9 +35,9 @@ prepare() {
   make mrproper
 
   # Arch linux logo
-  msg "Replacing penguins with arches"
+#  msg "Replacing penguins with arches"
   #bzip2 -dk ${startdir}/logo_linux_*.bz2
-  cp ${startdir}/logo_linux_*.p?m drivers/video/logo/
+#  cp ${startdir}/logo_linux_*.p?m drivers/video/logo/
 
   # add upstream patch
   patch -p1 -i "${srcdir}/patch-${pkgver}"
@@ -46,15 +50,19 @@ prepare() {
   # (relevant patch sent upstream: https://lkml.org/lkml/2011/7/26/227)
   patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
 
+  # Add grsecurity patches
+  patch -Np1 -i "$srcdir/$_grsec_patch"
+  rm localversion-grsec
+
   # fix saa7134 video
   # https://bugs.archlinux.org/task/39904
   # https://bugzilla.kernel.org/show_bug.cgi?id=73361
-  patch -Np1 -i "${srcdir}/0012-fix-saa7134.patch"
+  #patch -Np1 -i "${srcdir}/0012-fix-saa7134.patch"
 
   if [ "${CARCH}" = "x86_64" ]; then
-    cat "${srcdir}/config.x86_64.smichel" > ./.config
-  else
     cat "${srcdir}/config.smichel" > ./.config
+  else
+    cat "${srcdir}/config.smichel.grsec" > ./.config
   fi
 
   if [ "${_kernelname}" != "" ]; then
@@ -264,3 +272,12 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
+sha512sums=('d25812043850530fdcfdb48523523ee980747f3c2c1266149330844dae2cba0d056d4ddd9c0f129f570f5d1f6df5c20385aec5f6a2e0755edc1e2f5f93e2c6bc'
+            'ae0454d09a81168164a97e5663f6476e953bfb42ecca597ba9bc07ce4142f8e9567a1e0e1b6726f002669e1acdd39fed0a3ecda54e5719efbf17bd661ea0ba56'
+            'd3175a3eda0de177f9230e754f3deeadb0fd5480c7e9f597fc145605ddec29d1c9e314454c9b8897f164ebad5ffe91a58e66339a2d7f14ccb40f049d5691576c'
+            'SKIP'
+            '715479637f7f05c280317ab59dca3f94287a21954c1c594eebccbbf12c5b94aad61f1f46aa0ebe772be3d1365f013de9ae49f1b88853cf692640142053f0e771'
+            '715479637f7f05c280317ab59dca3f94287a21954c1c594eebccbbf12c5b94aad61f1f46aa0ebe772be3d1365f013de9ae49f1b88853cf692640142053f0e771'
+            '51c1f972aa35ceb6879e0f2bb18cb78c2959d1dd129e67c4bd96aa07a350c983ca3b1760446ef417948f462647fbface3fe1f98ab666e346f4f3f7b9a9fc9054'
+            'fed83472e89969405c10190e9c0b1d1a50c1d98db8c4b151f009851d03e152bad814ff5011f505418e2d0aadf22260f020ce840a63d17de6f9fcdbec5b1f8758'
+            'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8')
