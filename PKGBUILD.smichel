@@ -14,7 +14,7 @@ options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v3.x/patch-${pkgver}.xz"
         # the main kernel config files
-        'config.smichel' 'config.x86_64.smichel'
+        'config.smichel' 'config.smichel.grsec'
         # standard config files for mkinitcpio ramdisk
         'linux-titanium.preset' 'linux-titanium.install'
         'change-default-console-loglevel.patch'
