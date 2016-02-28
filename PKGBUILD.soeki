@@ -9,6 +9,7 @@ pkgrel=1
 _grsecver=3.1
 _timestamp=201602182048
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
+_paxver=test4
 pkgrel=1
 arch=('x86_64')
 url="http://www.kernel.org/"
@@ -18,7 +19,7 @@ options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
 		#"https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
         "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
-        "https://grsecurity.net/test/$_grsec_patch"
+        "https://grsecurity.net/test/${_grsec_patch}"
         "https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
         #'config.soeki' 'config.x86_64.soeki'
@@ -54,7 +55,7 @@ prepare() {
   patch -Np1 -i "${srcdir}/change-default-console-loglevel.patch"
 
   # Add grsecurity patches
-  patch -Np1 -i "$srcdir/$_grsec_patch"
+  patch -Np1 -i "${srcdir}/${_grsec_patch}"
   rm localversion-grsec
 
   if [ "${CARCH}" = "x86_64" ]; then
@@ -289,7 +290,7 @@ sha512sums=('13c8459933a8b80608e226a1398e3d1848352ace84bcfb7e6a4a33cb230bbe1ab71
             '5b74a18de5e22835f6ccb1676e7e922a7e04dfa96f8b81328e9d96f2bf09c26b029e64c6d31226a6cfa15bbec842a9e6ec94669ad814a8880a8b52903ccd605d'
             'SKIP'
             'cd587fa9685ab8e2cc68847be7e3b1f05f1247fc99b8ed756777c74134bc599be6aaa20a401b9e27bd93fb8ddeff5ab44f8d177365c115b9afa310e6b2c1ef40'
-            'cd587fa9685ab8e2cc68847be7e3b1f05f1247fc99b8ed756777c74134bc599be6aaa20a401b9e27bd93fb8ddeff5ab44f8d177365c115b9afa310e6b2c1ef40'
+            '988931cdbe780337c871e57632e74f8b3e2daa83d43b2f773fb6a56a1fc7d0a3fb40a76c8e1e1e16f39fa79b93a4957fe1a68016d4edae3266cd4f8687e12893'
             '51c1f972aa35ceb6879e0f2bb18cb78c2959d1dd129e67c4bd96aa07a350c983ca3b1760446ef417948f462647fbface3fe1f98ab666e346f4f3f7b9a9fc9054'
             'ad0752f7ba82757e02fa2bdbf7eb04d82cf566f4097a07c3a5dfe06c4f998e9ea0cb938d30318b210af460a082557d6c066b4182c470d9d5fed0548de2b72db2'
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8')
