@@ -1,4 +1,4 @@
-# 29.02.2016
+# 02.03.2016
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
@@ -7,7 +7,7 @@ _srcname=linux-4.4
 pkgver=4.4.3
 pkgrel=1
 _grsecver=3.1
-_timestamp=201602282149
+_timestamp=201603012143
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 pkgrel=1
 arch=('i686' 'x86_64')
@@ -284,7 +284,7 @@ done
 # vim:set ts=8 sts=2 sw=2 et:
 sha512sums=('13c8459933a8b80608e226a1398e3d1848352ace84bcfb7e6a4a33cb230bbe1ab719d4b58e067283df91ce5311be6d2d595fc8c19e2ae6ecc652499415614b3e'
             '8477ecd07d06bc6c6d75dc95027920e1f41128fa8a6b382377d7a0a64ccbca719a464ef64397a3715e7ffe400640c6590ab5da691690472d1f9311ed82041d50'
-            'ab4b007078ba9f30a95a84838c97d7e3951d58347f79fbbf90bb4ced1ae851251aa5ec715764ead67efad30188252930251b901573ce1ecf1aeef20bd4ca8d5b'
+            'c3178188ade5afb4090e6ec14c076669cef4ae239b83ad874cd6021b4ef115a0cd9e2a8971c6ec4fca6d1569e10ef81c060853a473aff999ed11c40bedb33851'
             'SKIP'
             'fe2d57be3076c7e6120950a25ebfe9cd93bad6c75c8cc812df47f3d0d01f9f61671a6cecb23f8dfa83077c62db7ea81f9749778c893b884c26e4cfd1449e440f'
             'fe2d57be3076c7e6120950a25ebfe9cd93bad6c75c8cc812df47f3d0d01f9f61671a6cecb23f8dfa83077c62db7ea81f9749778c893b884c26e4cfd1449e440f'

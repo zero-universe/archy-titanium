@@ -1,4 +1,4 @@
-# 29.02.2016
+# 02.03.2016
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 pkgbase=linux-titanium      # Build -titanium kernel
@@ -7,7 +7,7 @@ _srcname=linux-4.4
 pkgver=4.4.3
 pkgrel=1
 _grsecver=3.1
-_timestamp=201602282149
+_timestamp=201603012143
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 pkgrel=1
 arch=('x86_64')
