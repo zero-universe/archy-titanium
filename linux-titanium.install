@@ -2,16 +2,13 @@
 # arg 2:  the old package version
 
 KERNEL_NAME=-titanium
-KERNEL_VERSION=4.4.3-1-titanium
-
-# set a sane PATH to ensure that critical utils like depmod will be found
-export PATH='/usr/local/sbin:/usr/local/bin:/usr/bin'
+KERNEL_VERSION=4.4.4-1-titanium
 
 post_install () {
   # updating module dependencies
   echo ">>> Updating module dependencies. Please wait ..."
   depmod ${KERNEL_VERSION}
-  echo ">>> Generating initial ramdisk, using mkinitcpio.  Please wait..."
+  echo ">>> Generating initial ramdisk, using mkinitcpio. Please wait..."
   mkinitcpio -p linux${KERNEL_NAME}
 }
 
@@ -23,7 +20,7 @@ post_upgrade() {
   # updating module dependencies
   echo ">>> Updating module dependencies. Please wait ..."
   depmod ${KERNEL_VERSION}
-  echo ">>> Generating initial ramdisk, using mkinitcpio.  Please wait..."
+  echo ">>> Generating initial ramdisk, using mkinitcpio. Please wait..."
   mkinitcpio -p linux${KERNEL_NAME}
 
   if [ $(vercmp $2 3.13) -lt 0 ]; then

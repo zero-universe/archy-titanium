@@ -1,22 +1,24 @@
-# 02.03.2016
-# Maintainer: Oleg Lusan <zero.universe@gmail.com>
+# $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
+# Maintainer: Tobias Powalowski <tpowa@archlinux.org>
+# Maintainer: Thomas Baechler <thomas@archlinux.org>
 
-pkgbase=linux-titanium      # Build -titanium kernel
-#pkgbase=linux-custom       # Build kernel with a different name
+#pkgbase=linux               # Build stock -ARCH kernel
+pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.4
-pkgver=4.4.3
+pkgver=4.4.4
 pkgrel=1
 _grsecver=3.1
-_timestamp=201603012143
+_timestamp=201603032158
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
-pkgrel=1
-arch=('x86_64')
+arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
 license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
         "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
         "https://grsecurity.net/test/$_grsec_patch"
         "https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
@@ -24,13 +26,19 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         # standard config files for mkinitcpio ramdisk
         'linux-titanium.preset' 'linux-titanium.install'
         'change-default-console-loglevel.patch'
-        )
+        '0001-sdhci-revert.patch')
+
+validpgpkeys=(
+              'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
+              '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman
+			  'DE9452CE46F42094907F108B44D1C0F82525FE49' # Bradley Sprengler
+             )
 
 _kernelname=${pkgbase#linux}
 
 prepare() {
   cd "${srcdir}/${_srcname}"
-  
+
   # tidy up a bit ;-)
   make clean
   make mrproper
@@ -45,6 +53,11 @@ prepare() {
 
   # add latest fixes from stable queue, if needed
   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
+  
+  # revert http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=9faac7b95ea4f9e83b7a914084cc81ef1632fd91
+  # fixes #47778 sdhci broken on some boards
+  # https://bugzilla.kernel.org/show_bug.cgi?id=106541
+  patch -Rp1 -i "${srcdir}/0001-sdhci-revert.patch"
 
   # set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
   # remove this when a Kconfig knob is made available by upstream
@@ -54,11 +67,6 @@ prepare() {
   # Add grsecurity patches
   patch -Np1 -i "$srcdir/$_grsec_patch"
   rm localversion-grsec
-
-  # fix saa7134 video
-  # https://bugs.archlinux.org/task/39904
-  # https://bugzilla.kernel.org/show_bug.cgi?id=73361
-#  patch -Np1 -i "${srcdir}/0012-fix-saa7134.patch"
 
   if [ "${CARCH}" = "x86_64" ]; then
     cat "${srcdir}/config.x86_64.idms" > ./.config
@@ -80,7 +88,7 @@ prepare() {
   # get kernel version
   make prepare
 
-  #load configuration
+  # load configuration
   # Configure the kernel. Replace the line below with one of your choice.
   #make menuconfig # CLI menu for configuration
   #make nconfig # new CLI menu for configuration
@@ -103,11 +111,8 @@ _package() {
   [ "${pkgbase}" = "linux" ] && groups=('base')
   depends=('coreutils' 'linux-firmware' 'kmod' 'mkinitcpio>=0.7')
   optdepends=('crda: to set the correct wireless channels of your country')
-  provides=("kernel26${_kernelname}=${pkgver}")
-  conflicts=("kernel26${_kernelname}")
-  replaces=("kernel26${_kernelname}")
   backup=("etc/mkinitcpio.d/${pkgbase}.preset")
-  install=linux-titanium.install
+  install=${pkgbase}.install
 
   cd "${srcdir}/${_srcname}"
 
@@ -131,7 +136,7 @@ _package() {
     -i "${startdir}/${install}"
 
   # install mkinitcpio preset file for kernel
-  install -D -m644 "${srcdir}/linux-titanium.preset" "${pkgdir}/etc/mkinitcpio.d/${pkgbase}.preset"
+  install -D -m644 "${srcdir}/${pkgbase}.preset" "${pkgdir}/etc/mkinitcpio.d/${pkgbase}.preset"
   sed \
     -e "1s|'linux.*'|'${pkgbase}'|" \
     -e "s|ALL_kver=.*|ALL_kver=\"/boot/vmlinuz-${pkgbase}\"|" \
@@ -164,9 +169,6 @@ _package() {
 
 _package-headers() {
   pkgdesc="Header files and scripts for building modules for ${pkgbase/linux/Linux} kernel"
-  provides=("kernel26${_kernelname}-headers=${pkgver}")
-  conflicts=("kernel26${_kernelname}-headers")
-  replaces=("kernel26${_kernelname}-headers")
 
   install -dm755 "${pkgdir}/usr/lib/modules/${_kernver}"
 
@@ -223,6 +225,10 @@ _package-headers() {
   mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/net/mac80211/"
   cp net/mac80211/*.h "${pkgdir}/usr/lib/modules/${_kernver}/build/net/mac80211/"
 
+  # add xfs and shmem for aufs building
+  mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/fs/xfs"
+  mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/mm"
+
   # copy in Kconfig files
   for i in $(find . -name "Kconfig*"); do
     mkdir -p "${pkgdir}"/usr/lib/modules/${_kernver}/build/`echo ${i} | sed 's|/Kconfig.*||'`
@@ -246,13 +252,15 @@ _package-headers() {
 
   # remove unneeded architectures
   rm -rf "${pkgdir}"/usr/lib/modules/${_kernver}/build/arch/{alpha,arc,arm,arm26,arm64,avr32,blackfin,c6x,cris,frv,h8300,hexagon,ia64,m32r,m68k,m68knommu,metag,mips,microblaze,mn10300,openrisc,parisc,powerpc,ppc,s390,score,sh,sh64,sparc,sparc64,tile,unicore32,um,v850,xtensa}
+  
+  # remove a files already in linux-docs package
+  rm -f "${pkgdir}/usr/lib/modules/${_kernver}/build/Documentation/kbuild/Kconfig.recursion-issue-01"
+  rm -f "${pkgdir}/usr/lib/modules/${_kernver}/build/Documentation/kbuild/Kconfig.recursion-issue-02"
+  rm -f "${pkgdir}/usr/lib/modules/${_kernver}/build/Documentation/kbuild/Kconfig.select-break"
 }
 
 _package-docs() {
   pkgdesc="Kernel hackers manual - HTML documentation that comes with the ${pkgbase/linux/Linux} kernel"
-  provides=("kernel26${_kernelname}-docs=${pkgver}")
-  conflicts=("kernel26${_kernelname}-docs")
-  replaces=("kernel26${_kernelname}-docs")
 
   cd "${srcdir}/${_srcname}"
 
@@ -268,17 +276,21 @@ _package-docs() {
 pkgname=("${pkgbase}" "${pkgbase}-headers" "${pkgbase}-docs")
 for _p in ${pkgname[@]}; do
   eval "package_${_p}() {
+    $(declare -f "_package${_p#${pkgbase}}")
     _package${_p#${pkgbase}}
   }"
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
 sha512sums=('13c8459933a8b80608e226a1398e3d1848352ace84bcfb7e6a4a33cb230bbe1ab719d4b58e067283df91ce5311be6d2d595fc8c19e2ae6ecc652499415614b3e'
-            '8477ecd07d06bc6c6d75dc95027920e1f41128fa8a6b382377d7a0a64ccbca719a464ef64397a3715e7ffe400640c6590ab5da691690472d1f9311ed82041d50'
-            'c3178188ade5afb4090e6ec14c076669cef4ae239b83ad874cd6021b4ef115a0cd9e2a8971c6ec4fca6d1569e10ef81c060853a473aff999ed11c40bedb33851'
+            'SKIP'
+            'c206af7803cb0915fbe2bd27ed33282452db3fbd3070c73e4c7147443efd3c7588fb3be12d0abc08742381fbe892190602b29147684630aa9e6ff5e9efa49dbc'
+            'SKIP'
+            'aa72bf57477f154ce7017355a325e7835ee1a7d402b0571e2287a216b8acb4ddaede6fe4ef9fe522cd9d45a2aac041ec0f88a271bffd9cf64db6b7d059ed7c82'
             'SKIP'
             '4fb9837d240fa68f4f1fa9e21c6c75bfd9be424929f8f709f72de1a724d86e91c8b2dcd68b4626b495c3266498aff0709dee63b3032db06df459564f25a3439f'
             '4fb9837d240fa68f4f1fa9e21c6c75bfd9be424929f8f709f72de1a724d86e91c8b2dcd68b4626b495c3266498aff0709dee63b3032db06df459564f25a3439f'
-            '51c1f972aa35ceb6879e0f2bb18cb78c2959d1dd129e67c4bd96aa07a350c983ca3b1760446ef417948f462647fbface3fe1f98ab666e346f4f3f7b9a9fc9054'
-            '39d00790f9093b25dfcf5c39aa53ec515fadb5c7990aa32225ca1e287ff2699f8ddc24c549b06609bbc739b2c38a21a2cbe8edb6b2f3c1b801adcebf377c182f'
-            'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8')
+            '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
+            'cc95e2ecf9e2ec3418df53965d5c72724bb24863db9ecbf638c2783ded9e5e4c0066fc1a89808136d8060e045a7ec4d8b408ddaf8d5570dccb7d5d3749c783b0'
+            'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
+            'be80d7ee558595d4b17b07a5a2b729d9a9503c963ec1b19bac6a87601eaefd28075aea7fb6d9c77e2e15e063fc6a8a2e8744bc1efe63e2a58b8c3ede0d89c821')
