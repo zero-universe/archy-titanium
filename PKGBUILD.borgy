@@ -1,3 +1,6 @@
+# 11.03.2016
+# Maintainer: Oleg Lusan <zero.universe@gmail.com>
+
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
 # Maintainer: Tobias Powalowski <tpowa@archlinux.org>
 # Maintainer: Thomas Baechler <thomas@archlinux.org>
@@ -5,10 +8,10 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.4
-pkgver=4.4.4
+pkgver=4.4.5
 pkgrel=1
 _grsecver=3.1
-_timestamp=201603032158
+_timestamp=201603102309
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -19,8 +22,8 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
         "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
-        "https://grsecurity.net/test/$_grsec_patch"
-        "https://grsecurity.net/test/${_grsec_patch}.sig"
+        #"https://grsecurity.net/test/$_grsec_patch"
+        #"https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
         'config.borgy' 'config.x86_64.borgy'
         # standard config files for mkinitcpio ramdisk
@@ -31,7 +34,7 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
 validpgpkeys=(
               'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
               '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman
-			  'DE9452CE46F42094907F108B44D1C0F82525FE49' # Bradley Sprengler
+			  #'DE9452CE46F42094907F108B44D1C0F82525FE49' # Bradley Sprengler
              )
 
 _kernelname=${pkgbase#linux}
@@ -44,9 +47,9 @@ prepare() {
   make mrproper
 
   # Arch linux logo
-  #msg "Replacing penguins with arches"
+  msg "Replacing penguins with arches"
   #bzip2 -dk ${startdir}/logo_linux_*.bz2
-  #cp ${startdir}/logo_linux_*.p?m drivers/video/logo/
+  cp ${startdir}/logo_linux_*.p?m drivers/video/logo/
 
   # add upstream patch
   patch -p1 -i "${srcdir}/patch-${pkgver}"
@@ -65,8 +68,8 @@ prepare() {
   patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
 
   # Add grsecurity patches
-  patch -Np1 -i "$srcdir/$_grsec_patch"
-  rm localversion-grsec
+  #patch -Np1 -i "$srcdir/$_grsec_patch"
+  #rm localversion-grsec
 
   if [ "${CARCH}" = "x86_64" ]; then
     cat "${srcdir}/config.x86_64.borgy" > ./.config
@@ -286,10 +289,8 @@ sha512sums=('13c8459933a8b80608e226a1398e3d1848352ace84bcfb7e6a4a33cb230bbe1ab71
             'SKIP'
             'c206af7803cb0915fbe2bd27ed33282452db3fbd3070c73e4c7147443efd3c7588fb3be12d0abc08742381fbe892190602b29147684630aa9e6ff5e9efa49dbc'
             'SKIP'
-            'aa72bf57477f154ce7017355a325e7835ee1a7d402b0571e2287a216b8acb4ddaede6fe4ef9fe522cd9d45a2aac041ec0f88a271bffd9cf64db6b7d059ed7c82'
-            'SKIP'
-            '4fb9837d240fa68f4f1fa9e21c6c75bfd9be424929f8f709f72de1a724d86e91c8b2dcd68b4626b495c3266498aff0709dee63b3032db06df459564f25a3439f'
-            '4fb9837d240fa68f4f1fa9e21c6c75bfd9be424929f8f709f72de1a724d86e91c8b2dcd68b4626b495c3266498aff0709dee63b3032db06df459564f25a3439f'
+            '1375eb24d45b04cdf3a861a5ae264c2a9d9eeb78f7b4043e9069e5a38ec12c3005a0df1ec7338b38f8337b8b304408e73d46422710dce1cc0b397d3c25855280'
+            '1375eb24d45b04cdf3a861a5ae264c2a9d9eeb78f7b4043e9069e5a38ec12c3005a0df1ec7338b38f8337b8b304408e73d46422710dce1cc0b397d3c25855280'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
             'cc95e2ecf9e2ec3418df53965d5c72724bb24863db9ecbf638c2783ded9e5e4c0066fc1a89808136d8060e045a7ec4d8b408ddaf8d5570dccb7d5d3749c783b0'
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
