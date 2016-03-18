@@ -1,4 +1,4 @@
-# 11.03.2016
+# 14.03.2016
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -11,7 +11,7 @@ _srcname=linux-4.4
 pkgver=4.4.5
 pkgrel=1
 _grsecver=3.1
-_timestamp=201603102309
+_timestamp=201603131305309
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
