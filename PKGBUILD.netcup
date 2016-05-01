@@ -1,4 +1,4 @@
-# 20160429
+# 20160501
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -11,7 +11,7 @@ _srcname=linux-4.5
 pkgver=4.5.2
 pkgrel=1
 _grsecver=3.1
-_timestamp=201604282058
+_timestamp=201604290633
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -289,7 +289,7 @@ sha512sums=('cb0d5f30baff37dfea40fbc1119a1482182f95858c883e019ee3f81055c8efbdb9d
             'SKIP'
             'cc0ba1c2205ab44d41c9792e03e0164cc8bb79eae3d324d138f61ef714513d06abdedc5467d6f0b5fa6601d47032cea66840c01104dfe8f5b606c76483a5355a'
             'SKIP'
-            'e2875e3544b6dbf8c9fc3a279459d1e320c7762744359eff8571f90449fda017259d47947747fd2dd8f4b280f2f9c0071e9fb8a799da0e7ab78bce22c7db0083'
+            '027cfd90c87e8d93e2663d3075cd5c08f90b75f1bda43815b07be42277f4c306c73862e8d85b7df6686cf717800565cbcfeb30efd67033b0e3aec2bd74b580ea'
             'SKIP'
             'caef4787815413aaf7ebbaecd8f214e73dd0c63eeaa0d050e477c14b0a82033a123a5c6a48ef88946e2f2cbedb0444d5f65d45750667ad1efc01965e8facf233'
             'caef4787815413aaf7ebbaecd8f214e73dd0c63eeaa0d050e477c14b0a82033a123a5c6a48ef88946e2f2cbedb0444d5f65d45750667ad1efc01965e8facf233'
