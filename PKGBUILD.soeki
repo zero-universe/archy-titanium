@@ -1,4 +1,4 @@
-# 20160506
+# 20160508
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -9,9 +9,9 @@
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.5
 pkgver=4.5.3
-pkgrel=1
+pkgrel=2
 _grsecver=3.1
-_timestamp=201605060852
+_timestamp=201605071741
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -289,11 +289,11 @@ sha512sums=('cb0d5f30baff37dfea40fbc1119a1482182f95858c883e019ee3f81055c8efbdb9d
             'SKIP'
             'e29e87e8e38f92cac62e351d6d716f0de0b67764de8f8955e3730b6aa5d5090e71c8442ac55547f5f7c776a269e651eaefaadae514a8e0b442df5459409e793b'
             'SKIP'
-            '0a0df40fad0b00ebd2f341fccf999333d4ea33ad0951714657fe556445f33baa9b56b8470c6f5124bfe6e0481252f38d08b933474afb9f96dd752b001412c227'
+            'b2389efdee1707411f2f3766353e4938ee49130ca6e54c11f707daf515619d0d11996b4850ad11728d278d768ad160ec82f90d4c2a25799749fd45b067b51fd3'
             'SKIP'
             'a0cb8cfb55035aceab05f9d4427f05579ae485bbe04edc9540e8e2c4f97e63a0912060c3836d64b3c9c5e36b1ad60b22a2acb48c9845ccead6c81dc7eb1e1d6e'
             'a0cb8cfb55035aceab05f9d4427f05579ae485bbe04edc9540e8e2c4f97e63a0912060c3836d64b3c9c5e36b1ad60b22a2acb48c9845ccead6c81dc7eb1e1d6e'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            'cb084d9e30e148af6ee792a2a418585aa44ae0d73d838da95822be2e6568a7352392c87eebf552f5b09ee279fb847abab2d73fd89c5ac89ae5ac854bc5b2923c'
+            '49103c6b48c656c704b2c8e16ddde9ac322bc3e2586dd5a557fe3a1ca11218f2b252619edb3cdde4d0cffc1a04dd407e172fbda473de3071ba172b98b2ab074e'
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
             'be80d7ee558595d4b17b07a5a2b729d9a9503c963ec1b19bac6a87601eaefd28075aea7fb6d9c77e2e15e063fc6a8a2e8744bc1efe63e2a58b8c3ede0d89c821')
