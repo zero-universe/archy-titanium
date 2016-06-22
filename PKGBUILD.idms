@@ -9,7 +9,7 @@
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.5
 pkgver=4.5.7
-pkgrel=3
+pkgrel=4
 _grsecver=3.1
 _timestamp=201606202152
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
@@ -289,7 +289,7 @@ sha512sums=('cb0d5f30baff37dfea40fbc1119a1482182f95858c883e019ee3f81055c8efbdb9d
             'SKIP'
             '948fb18128eacf421ae92fc466bc395b4a0fd7bb514afb52b910f0f860dbc56cb6318ae604082892d93e293cc9987cf61177b1280c79474533f0d0f7113682f5'
             'SKIP'
-            '10f1512d88ca0a5f19d0e624c63056fc514ebb42d9909f0da080407149f909829eccc556ad6e981b271ff13ce184acfa49e9f82a57de44930091eb2c3b278b58'
+            'a8a9a19897ae8c100937de08c099705aeb89ded24e47b4f5217f96c5c6452dc179a2a0bd71d625b4ae5b061c41abc614eb9d32ec13fd7fd40ebff9c69959d3d6'
             'SKIP'
             '71fd49b472d9759ad5732a9ff8b212d95338c8e7cb6054c8553068e2766002dae32537405f3c5cd38ef0eee63ff1acec2911e50506f89dfaf0ef0647fc6a4e95'
             '71fd49b472d9759ad5732a9ff8b212d95338c8e7cb6054c8553068e2766002dae32537405f3c5cd38ef0eee63ff1acec2911e50506f89dfaf0ef0647fc6a4e95'
