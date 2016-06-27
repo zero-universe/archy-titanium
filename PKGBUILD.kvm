@@ -1,4 +1,4 @@
-# date=20160625
+# date=20160627
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -9,9 +9,9 @@
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.5
 pkgver=4.5.7
-pkgrel=5
+pkgrel=6
 _grsecver=3.1
-_timestamp=201606222150
+_timestamp=201606262019
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
