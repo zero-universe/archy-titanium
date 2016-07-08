@@ -1,4 +1,4 @@
-# date=20160706
+# date=20160708
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -9,9 +9,9 @@
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.6
 pkgver=4.6.3
-pkgrel=1
+pkgrel=2
 _grsecver=3.1
-_timestamp=201607051723
+_timestamp=201607070721
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -29,7 +29,7 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         # standard config files for mkinitcpio ramdisk
         'linux-titanium.preset' 'linux-titanium.install'
         'change-default-console-loglevel.patch'
-        '0001-sdhci-revert.patch')
+		'0001-sdhci-revert.patch')
 
 validpgpkeys=(
               'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
@@ -289,11 +289,11 @@ sha512sums=('df5ee40b0ebd89914a900f63c32a481cb4f405d8f792b2d03ea167ce9c5bdf75154
             'SKIP'
             'd479c54e7b379595b4ad0a107f973c85f5e3f163147417ff60c3d01e5b4c7e1f04e49bdff22973f67e8abfdeaafa481fffe503e7d531a73f9f42e67f0f6a16b2'
             'SKIP'
-            'b1dda8002d094087bddeadec7e6a0119351184b2e78517d56151287f8aa02562a38af514be1452aa16f4e6bc361eef8b506a535399fe20036a3c89a08d778758'
+            '5b75085df871249136b20a9682d63ec806b98c85d4145e003951aa51a3b5e49f489882dd91850da44886a500044519a27ab5bd4317777b3db05a5dd4b84843f3'
             'SKIP'
             '39fbafae33fd99e3d016e48df11169af18add853a613cabca97a7b953330e36c37d56883bcc7c242597a45874c5f7dacda1e139cabeafb6bbab062c8e666762d'
             '39fbafae33fd99e3d016e48df11169af18add853a613cabca97a7b953330e36c37d56883bcc7c242597a45874c5f7dacda1e139cabeafb6bbab062c8e666762d'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            'fd3e2265ca2603ec9220a7832da14170d75b35a10ba9304bb511f1bdd1e9d6571d3d404af23c031e54fd441107be5330b4886df97ebbb3d375d586572eb2e2af'
+            'ca3dd7b574f6d7b3f1ce87a8f49ef439ca6a24cdea1b04d2eda94797db78823f48c72db77dfd649a31ba67236f8391eeff7bc1b5e318bdb6ef757b66f5cb9662'
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
             'be80d7ee558595d4b17b07a5a2b729d9a9503c963ec1b19bac6a87601eaefd28075aea7fb6d9c77e2e15e063fc6a8a2e8744bc1efe63e2a58b8c3ede0d89c821')

@@ -1,4 +1,4 @@
-# date=20160706
+# date=20160708
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -9,9 +9,9 @@
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.6
 pkgver=4.6.3
-pkgrel=1
+pkgrel=2
 _grsecver=3.1
-_timestamp=201607051723
+_timestamp=201607070721
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -28,8 +28,7 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         'config.kvm' 'config.x86_64.kvm'
         # standard config files for mkinitcpio ramdisk
         'linux-titanium.preset' 'linux-titanium.install'
-        'change-default-console-loglevel.patch'
-        '0001-sdhci-revert.patch')
+        'change-default-console-loglevel.patch')
 
 validpgpkeys=(
               'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
