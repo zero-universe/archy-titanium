@@ -1,4 +1,4 @@
-# date=20160819
+# date=20160830
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,10 +8,10 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.7
-pkgver=4.7.1
+pkgver=4.7.2
 pkgrel=1
 _grsecver=3.1
-_timestamp=201608161813
+_timestamp=201608211829
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -285,15 +285,3 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha512sums=('e8c02583e17e4fc4214fef694825fcb78c898266f1624deb1cdf56ab5c5fdfa669c5221122a7cf0d502ed6f921ff3797634acd9d294d29e98e3faa8a21920185'
-            'SKIP'
-            '3c5d941ac007ca4d6e1a7cc0f967d6d213ff86887c9f11f09012fe18ea20cc9e14776c7fc7475d83162376bd67d19c43fa0313da7439d8312b6a9d800ebc5bc8'
-            'SKIP'
-            '0aebc4ff3705701995c7909e80664448c9ae16baa591329af28cd2bca38acc794f6ca18266221e1fbc8bedfcce813c470045623f052f4882c849312f34527f97'
-            'SKIP'
-            '8cdf85f7111db07f6edd3497b8476b421dcb1d5d00a52e39d9080111fe87caa1a73eece1d634ce5cd1ec1ae25f8e64f25beaf392dc9dbcc5a1bb44ae37772ee4'
-            '8cdf85f7111db07f6edd3497b8476b421dcb1d5d00a52e39d9080111fe87caa1a73eece1d634ce5cd1ec1ae25f8e64f25beaf392dc9dbcc5a1bb44ae37772ee4'
-            '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            'b196807b6be2542d88311beedca5834f32c916f3d25a60fddb448a490b949e3d78c76f59517f07e3e3f930afe59abe873c2f201fb66c10c13bbe996ce0079146'
-            'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
-            'be80d7ee558595d4b17b07a5a2b729d9a9503c963ec1b19bac6a87601eaefd28075aea7fb6d9c77e2e15e063fc6a8a2e8744bc1efe63e2a58b8c3ede0d89c821')
