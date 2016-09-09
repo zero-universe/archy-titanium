@@ -1,4 +1,4 @@
-# date=20160903
+# date=20160908
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,10 +8,10 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.7
-pkgver=4.7.2
-pkgrel=2
+pkgver=4.7.3
+pkgrel=1
 _grsecver=3.1
-_timestamp=201608312326
+_timestamp=201609072139
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -287,13 +287,13 @@ done
 # vim:set ts=8 sts=2 sw=2 et:
 sha512sums=('e8c02583e17e4fc4214fef694825fcb78c898266f1624deb1cdf56ab5c5fdfa669c5221122a7cf0d502ed6f921ff3797634acd9d294d29e98e3faa8a21920185'
             'SKIP'
-            'e05ef99e047b6874ef3978355c46cf38b7cb9e601af07be4ac12459a58152ebd6232e51f7f1263b95513ecac8aa1ed8129c09f2e298dd833195584ed9584b25b'
+            'f2cc5d72c3d923dffb7f89e8a90bb30f3a202a4c353cac7dd693c65bfdedb81dd9882223ca1fcb613c75fc8176e4f8e7133566455631acd6b0b85a521cf8ee09'
             'SKIP'
-            '9ab9c77feb79cd99b083f4fdd9deb554f4a3b89d9cfd91d831dd5e201f190e76a4697b6b9f0c75ae1498621fb1e67f7785ef45a7bd42be3857ff35bc3c25a52e'
+            '05090e70633386fc1e516de521b6455bb2906ce5e16c3838389c0025681f9e90262d32b98b6db68c69aa28fc01f25d504cfbb4f317cf0e676eff43152b303927'
             'SKIP'
             'ce3c78ae3ca8207c58beb6ef64fe1a102fa9d8e515cc7ce29fefc82a9edcb96c4dd8c888409ef143bfb0dff0b8499651b0c2c064a39534821c66d3d4fc95b6e1'
             'ce3c78ae3ca8207c58beb6ef64fe1a102fa9d8e515cc7ce29fefc82a9edcb96c4dd8c888409ef143bfb0dff0b8499651b0c2c064a39534821c66d3d4fc95b6e1'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            'e454e85eda37101bd1c134c8320504593944d8183ba228b2da9ce886c8be1e863bce5d6419407426da2c5ea63ff998c918007c201d193941ec0bc48eeb3417ee'
+            '8e7fed4cac16f463d70cbe8c37a5ee0ca1d4223929d16939a1380997c437c5d3cbc2993dd2dc0668b61e7cbe3ddca429111c8cfa9b8f3e130f842327a7592c2c'
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
             'be80d7ee558595d4b17b07a5a2b729d9a9503c963ec1b19bac6a87601eaefd28075aea7fb6d9c77e2e15e063fc6a8a2e8744bc1efe63e2a58b8c3ede0d89c821')
