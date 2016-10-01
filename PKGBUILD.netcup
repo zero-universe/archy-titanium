@@ -1,4 +1,4 @@
-# date=20160927
+# date=20160110
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,10 +8,10 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.7
-pkgver=4.7.5
+pkgver=4.7.6
 pkgrel=1
 _grsecver=3.1
-_timestamp=201609261522
+_timestamp=201609301918
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -287,13 +287,13 @@ done
 # vim:set ts=8 sts=2 sw=2 et:
 sha512sums=('e8c02583e17e4fc4214fef694825fcb78c898266f1624deb1cdf56ab5c5fdfa669c5221122a7cf0d502ed6f921ff3797634acd9d294d29e98e3faa8a21920185'
             'SKIP'
-            '7b1b5e2e218cc9f58495a003b1a8c28def6b7cc90a2158dfa1683ae95f980c4b5531d0afcf9529e3727f91a1c30b39846ddb06db7e334c0577b05d6e44211737'
+            '35e7448d41d070aac20d9dd7ca17d1ba13cd482fe771eccf548198dc264798dd592040322c016f83373ac75f01f7f99ba7327b0484f04e335f53b533a18bb1c4'
             'SKIP'
-            '3637050bd8fb8daf69bd819a505059a218d51bb777033878e87a8440b15f97906a23aabe9e1df9bcac46631a14833159c3c2450d138310dd3a3b28863f1e7cef'
+            'be6c8dcf03f3b7f4e4d201f61b426d5a5a74a538ed652efa071460abee30b24aeb1101db030baa91bb7b794ed69ca3f44d95e5b55ed3d8208efde5b61f43797c'
             'SKIP'
-            '493cc5cfc33aac01170adb7145230273adfc927c74caa61f0704457ea860ff5a492fbcfcfc68230657da0c06b1c9103daf11c21672e9fdf8d82fbb2837271a22'
-            '4499dbf65bf22e76ce4505fa484c1ebeb5099606ca37d66817337e61f3eabda202e15b00c9c7ad42ac1318870602d77e2eaeac76fc331341e240b23c7805c6c8'
+            'de3ffdd5882f57c57b6d51764a5c2929f606de847f85026b5ff6edb06e63ba369d8b3f0da34d60530bbfd2ab376e0bfbf5a171c15dabb9794d99d7fc4afb015b'
+            'de3ffdd5882f57c57b6d51764a5c2929f606de847f85026b5ff6edb06e63ba369d8b3f0da34d60530bbfd2ab376e0bfbf5a171c15dabb9794d99d7fc4afb015b'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '9983d92019ed9ccfb2da86320bba66eabc7f7c5ab9d2e558031f2a19db111382920dc0c7b4a493deeb6e2d38a32a2787cde1cebaccbd531953e811cfaf53ac47'
+            '7ab23f36486d89a566c76480ba5ec9c03d6aa63957d008034699b624d4e514ae9ab660c66966e67716d668defbdabdba3e7a271d941ece4ccd859034fdbad965'
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
             'be80d7ee558595d4b17b07a5a2b729d9a9503c963ec1b19bac6a87601eaefd28075aea7fb6d9c77e2e15e063fc6a8a2e8744bc1efe63e2a58b8c3ede0d89c821')
