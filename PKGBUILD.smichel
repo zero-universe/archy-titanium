@@ -7,8 +7,8 @@
 
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
-_srcname=linux-4.7
-pkgver=4.8.4
+_srcname=linux-4.8
+pkgver=4.8.5
 pkgrel=1
 _grsecver=3.1
 _timestamp=201610222034
@@ -27,8 +27,7 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         # the main kernel config files
         'config.smichel' 'config.x86_64.smichel'
         # standard config files for mkinitcpio ramdisk
-        'linux-titanium.preset' 'linux-titanium.install'
-        'change-default-console-loglevel.patch')
+        'linux-titanium.preset' 'linux-titanium.install')
 
 validpgpkeys=(
               'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
@@ -55,11 +54,6 @@ prepare() {
 
   # add latest fixes from stable queue, if needed
   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
-  
-  # revert http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=9faac7b95ea4f9e83b7a914084cc81ef1632fd91
-  # fixes #47778 sdhci broken on some boards
-  # https://bugzilla.kernel.org/show_bug.cgi?id=106541
-  patch -Rp1 -i "${srcdir}/0001-sdhci-revert.patch"
 
   # set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
   # remove this when a Kconfig knob is made available by upstream

@@ -1,4 +1,4 @@
-# date=20161025
+# date=20161029
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -7,8 +7,8 @@
 
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
-_srcname=linux-4.7
-pkgver=4.8.4
+_srcname=linux-4.8
+pkgver=4.8.5
 pkgrel=1
 _grsecver=3.1
 _timestamp=201610222034
@@ -22,14 +22,14 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
         "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
-        "https://grsecurity.net/test/$_grsec_patch"
-        "https://grsecurity.net/test/${_grsec_patch}.sig"
+#        "https://grsecurity.net/test/$_grsec_patch"
+#        "https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
         'config.soeki.grsec' 'config.x86_64.soeki.grsec'
+        'config.x86_64.soeki'
         # standard config files for mkinitcpio ramdisk
         'linux-titanium.preset' 'linux-titanium.install'
-        'change-default-console-loglevel.patch'
-		'0001-sdhci-revert.patch')
+        'change-default-console-loglevel.patch')
 
 validpgpkeys=(
               'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
@@ -56,11 +56,6 @@ prepare() {
 
   # add latest fixes from stable queue, if needed
   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
-  
-  # revert http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=9faac7b95ea4f9e83b7a914084cc81ef1632fd91
-  # fixes #47778 sdhci broken on some boards
-  # https://bugzilla.kernel.org/show_bug.cgi?id=106541
-  patch -Rp1 -i "${srcdir}/0001-sdhci-revert.patch"
 
   # set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
   # remove this when a Kconfig knob is made available by upstream
@@ -68,11 +63,12 @@ prepare() {
   patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
 
   # Add grsecurity patches
-  patch -Np1 -i "$srcdir/$_grsec_patch"
-  rm localversion-grsec
+  #patch -Np1 -i "$srcdir/$_grsec_patch"
+  #rm localversion-grsec
 
   if [ "${CARCH}" = "x86_64" ]; then
-    cat "${srcdir}/config.x86_64.soeki.grsec" > ./.config
+    #cat "${srcdir}/config.x86_64.soeki.grsec" > ./.config
+    cat "${srcdir}/config.x86_64.soeki" > ./.config
   else
     cat "${srcdir}/config.soeki.grsec" > ./.config
   fi
@@ -285,15 +281,13 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha512sums=('e8c02583e17e4fc4214fef694825fcb78c898266f1624deb1cdf56ab5c5fdfa669c5221122a7cf0d502ed6f921ff3797634acd9d294d29e98e3faa8a21920185'
+sha512sums=('a48a065f21e1c7c4de4cf8ca47b8b8d9a70f86b64e7cfa6e01be490f78895745b9c8790734b1d22182cf1f930fb87eaaa84e62ec8cc1f64ac4be9b949e7c0358'
             'SKIP'
-            '9b072227352b0981443b7daa0db89866d357c42f2d15452db3e76c44c0f31577dd3e96a46add79cf61a1f6d8bc2df18786ca61c95abd3ed49dde1176a2802665'
-            'SKIP'
-            'e6979004e9971e22918fc958f0a9d046567bc21c5b55a10c000d17ca36d111f5808817d07268e7269abd86790b1ebae810c2165730281f745f5debd9b3aaf3a4'
+            '0413f48f3153be36236997b42b7f68fd067bad57a7d2a0b291939ca46aac2900039abf82806c04c56e1f1966f81aef5926103136c05b6dd0c5faebc52cd4a3af'
             'SKIP'
             '64f5b40069fa530af37f43e6de2a8aa6a20d3cbe8fa2216f9a3a15ba9a5946f4b86f545499ab2e4f3c9ed2d6c246bb1676d623752ccb0b46bfb661137e6015ed'
             '64f5b40069fa530af37f43e6de2a8aa6a20d3cbe8fa2216f9a3a15ba9a5946f4b86f545499ab2e4f3c9ed2d6c246bb1676d623752ccb0b46bfb661137e6015ed'
+            '2f4392725dd3e15d431334225ae2558de72c1cd09209113435265a0c35e85bb7624a275f2a03b70e9881532ae6d7b0f544983ac7e8eac1d07094760dd95943d9'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '864b8877caeece942dcb681f1812f9bbf793c8542a2d42eb5b20276984bc8fcfbcb69791b6637c3f50a6ac4e222335fcb48b6633f79d58573e1797646a3d7db4'
-            'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
-            'be80d7ee558595d4b17b07a5a2b729d9a9503c963ec1b19bac6a87601eaefd28075aea7fb6d9c77e2e15e063fc6a8a2e8744bc1efe63e2a58b8c3ede0d89c821')
+            '0a461e68933b3d91617f373e1cf0a4bbecbe730fcd14cf2b0e4d1b5b134ef71350c0ec56da9669a52a195225b3090c38aa846a6907c910d9ecf61adb6b05c5af'
+            'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8')

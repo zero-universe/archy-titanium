@@ -7,8 +7,8 @@
 
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
-_srcname=linux-4.7
-pkgver=4.8.4
+_srcname=linux-4.8
+pkgver=4.8.5
 pkgrel=1
 _grsecver=3.1
 _timestamp=201610222034
@@ -27,8 +27,7 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         # the main kernel config files
         'config.kvm' 'config.x86_64.kvm'
         # standard config files for mkinitcpio ramdisk
-        'linux-titanium.preset' 'linux-titanium.install'
-        'change-default-console-loglevel.patch')
+        'linux-titanium.preset' 'linux-titanium.install')
 
 validpgpkeys=(
               'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
@@ -55,11 +54,6 @@ prepare() {
 
   # add latest fixes from stable queue, if needed
   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
-  
-  # revert http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=9faac7b95ea4f9e83b7a914084cc81ef1632fd91
-  # fixes #47778 sdhci broken on some boards
-  # https://bugzilla.kernel.org/show_bug.cgi?id=106541
-  #patch -Rp1 -i "${srcdir}/0001-sdhci-revert.patch"
 
   # set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
   # remove this when a Kconfig knob is made available by upstream
@@ -284,14 +278,3 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha512sums=('e8c02583e17e4fc4214fef694825fcb78c898266f1624deb1cdf56ab5c5fdfa669c5221122a7cf0d502ed6f921ff3797634acd9d294d29e98e3faa8a21920185'
-            'SKIP'
-            '35e7448d41d070aac20d9dd7ca17d1ba13cd482fe771eccf548198dc264798dd592040322c016f83373ac75f01f7f99ba7327b0484f04e335f53b533a18bb1c4'
-            'SKIP'
-            'be6c8dcf03f3b7f4e4d201f61b426d5a5a74a538ed652efa071460abee30b24aeb1101db030baa91bb7b794ed69ca3f44d95e5b55ed3d8208efde5b61f43797c'
-            'SKIP'
-            '72201708cd19c671951a16e0e4b147b4f70c5f6409af6669753cdc431b340b00325f61dd5fe3ed9e262b926779bd53374e51ff8bbf7861c9a92543f2685d0327'
-            '72201708cd19c671951a16e0e4b147b4f70c5f6409af6669753cdc431b340b00325f61dd5fe3ed9e262b926779bd53374e51ff8bbf7861c9a92543f2685d0327'
-            '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '7ab23f36486d89a566c76480ba5ec9c03d6aa63957d008034699b624d4e514ae9ab660c66966e67716d668defbdabdba3e7a271d941ece4ccd859034fdbad965'
-            'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8')
