@@ -1,4 +1,4 @@
-# date=20161105
+# date=20161109
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -11,7 +11,7 @@ _srcname=linux-4.8
 pkgver=4.8.6
 pkgrel=1
 _grsecver=3.1
-_timestamp=201610161720
+_timestamp=201611082138
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -22,8 +22,8 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
         "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
-#        "https://grsecurity.net/test/$_grsec_patch"
-#        "https://grsecurity.net/test/${_grsec_patch}.sig"
+        "https://grsecurity.net/test/$_grsec_patch"
+        "https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
         'config.soeki.grsec' 'config.x86_64.soeki.grsec'
         'config.x86_64.soeki' 'config.soeki'
@@ -63,12 +63,12 @@ prepare() {
   patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
 
   # Add grsecurity patches
-  #patch -Np1 -i "$srcdir/$_grsec_patch"
-  #rm localversion-grsec
+  patch -Np1 -i "$srcdir/$_grsec_patch"
+  rm localversion-grsec
 
   if [ "${CARCH}" = "x86_64" ]; then
-    #cat "${srcdir}/config.x86_64.soeki.grsec" > ./.config
-    cat "${srcdir}/config.x86_64.soeki" > ./.config
+    cat "${srcdir}/config.x86_64.soeki.grsec" > ./.config
+    #cat "${srcdir}/config.x86_64.soeki" > ./.config
   else
     cat "${srcdir}/config.soeki.grsec" > ./.config
   fi
@@ -285,8 +285,10 @@ sha512sums=('a48a065f21e1c7c4de4cf8ca47b8b8d9a70f86b64e7cfa6e01be490f78895745b9c
             'SKIP'
             '8a3c9bbba1bb8fc49b073509320fedec085b5de0507826baced59a2acfd0bef9b3a79a2510ccffa6bf1e21098bb13efff028f87ea239b19047e9afa61c149558'
             'SKIP'
-            '64f5b40069fa530af37f43e6de2a8aa6a20d3cbe8fa2216f9a3a15ba9a5946f4b86f545499ab2e4f3c9ed2d6c246bb1676d623752ccb0b46bfb661137e6015ed'
-            '64f5b40069fa530af37f43e6de2a8aa6a20d3cbe8fa2216f9a3a15ba9a5946f4b86f545499ab2e4f3c9ed2d6c246bb1676d623752ccb0b46bfb661137e6015ed'
+            '06f11b31573203dc8977e97dae392924e1a8ae8f18ceaffb33fc6aa880569ddf54700b46b13d52b492de1341f86fc75b9b3b6646872fc60237a715f7e238a132'
+            'SKIP'
+            'eca1a035a7826057b4f99f00807a99daafc76ce85e786a23210e30254324702e4fe727f6223c5eda49e2378af04296191cca9607b6d83dac888db582718d14d9'
+            'eca1a035a7826057b4f99f00807a99daafc76ce85e786a23210e30254324702e4fe727f6223c5eda49e2378af04296191cca9607b6d83dac888db582718d14d9'
             '927ad6c19d7fe05faae894d7ec2bb9e0a0f7a8d2ae30167e525a066613c2eab2f919263a108762ea70a9212b903d41644f26d4a78eeb959c9c07bfbada1f58b5'
             '927ad6c19d7fe05faae894d7ec2bb9e0a0f7a8d2ae30167e525a066613c2eab2f919263a108762ea70a9212b903d41644f26d4a78eeb959c9c07bfbada1f58b5'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
