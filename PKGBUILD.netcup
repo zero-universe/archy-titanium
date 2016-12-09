@@ -1,4 +1,4 @@
-# date=20161204
+# date=20161209
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,10 +8,10 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.8
-pkgver=4.8.12
+pkgver=4.8.13
 pkgrel=1
 _grsecver=3.1
-_timestamp=201612031658
+_timestamp=201612082118
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -281,12 +281,12 @@ done
 # vim:set ts=8 sts=2 sw=2 et:
 sha512sums=('a48a065f21e1c7c4de4cf8ca47b8b8d9a70f86b64e7cfa6e01be490f78895745b9c8790734b1d22182cf1f930fb87eaaa84e62ec8cc1f64ac4be9b949e7c0358'
             'SKIP'
-            '0240bbf602e5c06b4e0be8501c49b4f45e31931e1a50ab49f2c5db7b06af31a20233ea763e12402d4c72a7fa64dfdede9df6af5026936fbfdae436cad1c743f1'
+            'ab8d664208a8749c29730cf66cdc4b76b450a879550cdb5dfffc24234c1825949ddaefe98d5105626f556ab8a90be557f859b633f4ce8eda2c190e13efe199ec'
             'SKIP'
-            'd3fd2f32699dc9f045641f82f8b5a60c814ac7977da9221b912a03a7625ee51e636cb2872ffbbb28b60617afa4d28a568503f305026f59ddaa30cce2060a70ab'
+            'b15792c19e4c04be9f894dc09d91202bd41d14fb4731e5adab735f41dfc25f5412773e0d4230ef7ee79bbe7368ab25ad30bc2a6fdbd623a4d9ffb38f2b6d41d3'
             'SKIP'
             '12924c00d720a69d21f8ddd6ec92667dc49cd3cb2a2aaa35063b25057c12d01233363217a5969d78f1b0bea1f935c0cd4b9ef51a264de08bd2253822b79ac7e3'
             '12924c00d720a69d21f8ddd6ec92667dc49cd3cb2a2aaa35063b25057c12d01233363217a5969d78f1b0bea1f935c0cd4b9ef51a264de08bd2253822b79ac7e3'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '28aeffb822b9a5f247a726dcfe8b28b8b0f1318a2568709b99b25b531fb85e0de07634eb8f4dbf307cb0e69fe4c97aad6556c4128b6e604186ef24b6b2dc19bf'
+            '4c9cfb2a967c36949ddc90dae48c2d38638e9a75d1fac10049ac681f8ec16ebdad524417dadef43922b58abee931f604ccb0fedfa0c4993c553f0b233cb6d5b4'
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8')
