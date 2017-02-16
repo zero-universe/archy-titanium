@@ -1,4 +1,4 @@
-# date=20161218
+# date=20170216
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -7,11 +7,11 @@
 
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
-_srcname=linux-4.8
-pkgver=4.8.15
+_srcname=linux-4.9
+pkgver=4.9.10
 pkgrel=1
 _grsecver=3.1
-_timestamp=201612151923
+_timestamp=201702152052
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -59,7 +59,7 @@ prepare() {
   # set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
   # remove this when a Kconfig knob is made available by upstream
   # (relevant patch sent upstream: https://lkml.org/lkml/2011/7/26/227)
-  patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
+  #patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
 
   # Add grsecurity patches
   patch -Np1 -i "$srcdir/$_grsec_patch"
@@ -279,14 +279,14 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha512sums=('a48a065f21e1c7c4de4cf8ca47b8b8d9a70f86b64e7cfa6e01be490f78895745b9c8790734b1d22182cf1f930fb87eaaa84e62ec8cc1f64ac4be9b949e7c0358'
+sha512sums=('bf67ff812cc3cb7e5059e82cc5db0d9a7c5637f7ed9a42e4730c715bf7047c81ed3a571225f92a33ef0b6d65f35595bc32d773356646df2627da55e9bc7f1f1a'
             'SKIP'
-            'd819c86f3fe93ee1d083fdce954ae06a683a22e8b0864da170714c5230c4c2fdecc29270194b1ad8a715b836b493141c8ff2c09e76a84426b7a89ebc31fb9e01'
+            '93958f4b932a46bbd9a122f52bf09b8c4b864b419a0774514baeb7dc83f11f55a5ba84f2e586a904dbfeeb7d976352e40670fbe2e32e25c35085ddf87e41b58d'
             'SKIP'
-            'f09d69c5a53d8fed173f3bbc3ea6ef6963fbf5bf0d29b0dc8579f22eddf5b180d3eaa7c0c6c651f3d7d24dd7a33e8b2fc581b1e5ce1148b0b7d9b5753fea1c64'
+            '93b4ce0663ad1d9abac249c3960acf8a4b4e6d8cb78a66bb1aec9a34b07da60a49d6d83623c2accbf4d9b7a9ec70a5cac7a64a8acafca4091371b201355309f9'
             'SKIP'
-            '12924c00d720a69d21f8ddd6ec92667dc49cd3cb2a2aaa35063b25057c12d01233363217a5969d78f1b0bea1f935c0cd4b9ef51a264de08bd2253822b79ac7e3'
-            '12924c00d720a69d21f8ddd6ec92667dc49cd3cb2a2aaa35063b25057c12d01233363217a5969d78f1b0bea1f935c0cd4b9ef51a264de08bd2253822b79ac7e3'
+            'cd82ba2e27348d8c759f9927571d47a196e8fefb0e14a7284d11501e2b368ed872a8b8cebab24823483aaf0b4ebb74eb99d3dab8a56ab196aed462d4015e9505'
+            'cd82ba2e27348d8c759f9927571d47a196e8fefb0e14a7284d11501e2b368ed872a8b8cebab24823483aaf0b4ebb74eb99d3dab8a56ab196aed462d4015e9505'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '4d5fe133a306c6c0ac65b068c6dd49f8d29f4f0fec20817b988e3ee411e7a97059a4239901942cd4d6f4b8ff05a116c202b422c41e1008b089f68d79037c229a'
+            '6e30ad11744b5ba0cb3a5181e222bf25679dce252f606dd522009b3076366b6700d229a660bc050261b6b169c570cd9312dea9510be7a5326a5903a9a9b2a690'
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8')
