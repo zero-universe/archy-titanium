@@ -1,4 +1,4 @@
-# date=20170317
+# date=20170319
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,10 +8,10 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.9
-pkgver=4.9.15
+pkgver=4.9.16
 pkgrel=1
 _grsecver=3.1
-_timestamp=201703150049
+_timestamp=201703180820
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -281,12 +281,12 @@ done
 # vim:set ts=8 sts=2 sw=2 et:
 sha512sums=('bf67ff812cc3cb7e5059e82cc5db0d9a7c5637f7ed9a42e4730c715bf7047c81ed3a571225f92a33ef0b6d65f35595bc32d773356646df2627da55e9bc7f1f1a'
             'SKIP'
-            '95fbeff3b6cba1e273ea889b96c7cc8750f85587b7abe8f5b6fd29aca10a0105dd8ec7bae9c6a65b1aa8f37a98a67d0cecebe4bf98430d1f0576c21d687d007f'
+            'ccb50acfc83ece070594773f6f3c0e43c349f2dc65e889d9f03752afb2a3b5c9db7e9d2c61da2c9d774dad7556f163ea9fdf2b3690e4e74ef669259520dbd65f'
             'SKIP'
-            '35c9986293abb35f8e8aab3db42cc1a30285e85a39ad102d02c51d554690fb9c1806933b2a12bfc6577430b813882c3d0c327ebb55ee9d05d93210499459017a'
+            '143f273955872ba12f205a1ecc42511f569379f63cad0ff1f0964d3448619395a7700ae3791c3a5e16bc03e45458d4486215e3e490b0ba5e04e26c774e624f42'
             'SKIP'
             'cd82ba2e27348d8c759f9927571d47a196e8fefb0e14a7284d11501e2b368ed872a8b8cebab24823483aaf0b4ebb74eb99d3dab8a56ab196aed462d4015e9505'
             'cd82ba2e27348d8c759f9927571d47a196e8fefb0e14a7284d11501e2b368ed872a8b8cebab24823483aaf0b4ebb74eb99d3dab8a56ab196aed462d4015e9505'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            'a6a07cf2c3c78774e309254d49a7a907b093e53eefbd70210339aeda171ad118eaca47cc43a4d043ff7e48a4353ec2ab2b98d5076d7c487f1741385406cc1470'
+            '19a65024a071335e6479365847122e6ae052fda9faa3384339565bc807980fffbe37958d618c3bae901aa8e3841f881873539bc46b3b83a4bf7907c0edc613c7'
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8')
