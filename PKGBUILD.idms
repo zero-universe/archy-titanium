@@ -1,4 +1,4 @@
-# date=20170331
+# date=20170410
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,10 +8,10 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.9
-pkgver=4.9.20
+pkgver=4.9.21
 pkgrel=1
 _grsecver=3.1
-_timestamp=201703310823
+_timestamp=201704091948
 _grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
