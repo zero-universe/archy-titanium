@@ -1,4 +1,4 @@
-# date=20170421
+# date=20170428
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -7,8 +7,8 @@
 
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
-_srcname=linux-4.9
-pkgver=4.9.24
+_srcname=linux-4.10
+pkgver=4.10.13
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851
@@ -22,10 +22,10 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
         "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
-        "https://grsecurity.net/test/$_grsec_patch"
-        "https://grsecurity.net/test/${_grsec_patch}.sig"
+#        "https://grsecurity.net/test/$_grsec_patch"
+#        "https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
-        'config.soeki.grsec' 'config.x86_64.soeki.grsec'
+#        'config.soeki.grsec' 'config.x86_64.soeki.grsec'
         'config.x86_64.soeki' 'config.soeki'
         # standard config files for mkinitcpio ramdisk
         'linux-titanium.preset' 'linux-titanium.install'
@@ -63,14 +63,14 @@ prepare() {
   #patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
 
   # Add grsecurity patches
-  patch -Np1 -i "$srcdir/$_grsec_patch"
-  rm localversion-grsec
+#  patch -Np1 -i "$srcdir/$_grsec_patch"
+#  rm localversion-grsec
 
   if [ "${CARCH}" = "x86_64" ]; then
-    cat "${srcdir}/config.x86_64.soeki.grsec" > ./.config
-    #cat "${srcdir}/config.x86_64.soeki" > ./.config
+    #cat "${srcdir}/config.x86_64.soeki.grsec" > ./.config
+    cat "${srcdir}/config.x86_64.soeki" > ./.config
   else
-    cat "${srcdir}/config.soeki.grsec" > ./.config
+    cat "${srcdir}/config.soeki" > ./.config
   fi
 
   if [ "${_kernelname}" != "" ]; then
@@ -281,16 +281,12 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha512sums=('bf67ff812cc3cb7e5059e82cc5db0d9a7c5637f7ed9a42e4730c715bf7047c81ed3a571225f92a33ef0b6d65f35595bc32d773356646df2627da55e9bc7f1f1a'
+sha512sums=('c3690125a8402df638095bd98a613fcf1a257b81de7611c84711d315cd11e2634ab4636302b3742aedf1e3ba9ce0fea53fe8c7d48e37865d8ee5db3565220d90'
             'SKIP'
-            'c5619f95e6f838175491c1f8ba1fe13b37200984dfd241af3fcbb063de4d3b18948ffc0fda7bb594a92f0ec3332d35a2a255e830a7e1d68a5ecb8da57a8bd44b'
+            '8ada730b91ffd0ab35f619e2dd1b29cbcc090f94a2d8de04178af0b7e303abb5393090888506bf6f1f3899c27bbe50f132a42186193203fa1214130623b2e050'
             'SKIP'
-            'b6def27358a95ae20722586a93da99df5492c64155e49b773a508d69ff6920a77fd04a8cb7d7cb865e74cb8f137f3df1327e0b8d123c29be6f71bf65475a86d2'
-            'SKIP'
-            '0f254449b2c9c710f75a2f71b39529f7421e7d9992836ab83c0eb245fecd4458f0b42d01e17bb235bd65ae9b8262f613501705279554105da2fcc7fe44bed30a'
-            '0f254449b2c9c710f75a2f71b39529f7421e7d9992836ab83c0eb245fecd4458f0b42d01e17bb235bd65ae9b8262f613501705279554105da2fcc7fe44bed30a'
-            '927ad6c19d7fe05faae894d7ec2bb9e0a0f7a8d2ae30167e525a066613c2eab2f919263a108762ea70a9212b903d41644f26d4a78eeb959c9c07bfbada1f58b5'
-            '927ad6c19d7fe05faae894d7ec2bb9e0a0f7a8d2ae30167e525a066613c2eab2f919263a108762ea70a9212b903d41644f26d4a78eeb959c9c07bfbada1f58b5'
+            '7162ac5a4b10448f74ec8ae873a28e7d1da41fc2d14087805b8e9bc56fff1c0156ef97ecf42457e5e0dad29ca9901d290a7d9e27bf44d512a1d5108bf47d2e71'
+            '7162ac5a4b10448f74ec8ae873a28e7d1da41fc2d14087805b8e9bc56fff1c0156ef97ecf42457e5e0dad29ca9901d290a7d9e27bf44d512a1d5108bf47d2e71'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '7cf403373c1d6043302f0f93c066e89d1883bea4bd12c16be099cc35ba7c1538dd88a6cb9fe0d2d12bbec97b29c450b532181d0f6b46b06f18fd0736de590386'
+            '9b716a542517d11a5a89227101a021ce75a491a6db864932daef1e054290ab4f35a9b1236b0720a8763dafb619c80f5c360d5608bc15ce647b6b66e910f318ee'
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8')

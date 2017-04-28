@@ -1,4 +1,4 @@
-# date=20170421
+# date=20170428
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -7,8 +7,8 @@
 
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
-_srcname=linux-4.9
-pkgver=4.9.24
+_srcname=linux-4.10
+pkgver=4.10.13
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851
@@ -22,8 +22,8 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
         "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
-        "https://grsecurity.net/test/$_grsec_patch"
-        "https://grsecurity.net/test/${_grsec_patch}.sig"
+#        "https://grsecurity.net/test/$_grsec_patch"
+#        "https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
         'config.kvm' 'config.x86_64.kvm'
         # standard config files for mkinitcpio ramdisk
@@ -61,8 +61,8 @@ prepare() {
   #patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
 
   # Add grsecurity patches
-  patch -Np1 -i "$srcdir/$_grsec_patch"
-  rm localversion-grsec
+#  patch -Np1 -i "$srcdir/$_grsec_patch"
+#  rm localversion-grsec
 
   if [ "${CARCH}" = "x86_64" ]; then
     cat "${srcdir}/config.x86_64.kvm" > ./.config
