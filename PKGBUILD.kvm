@@ -7,8 +7,8 @@
 
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
-_srcname=linux-4.10
-pkgver=4.10.14
+_srcname=linux-4.11
+pkgver=4.11.0
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851
@@ -20,8 +20,8 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
-        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
-        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
+#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
+#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
 #        "https://grsecurity.net/test/$_grsec_patch"
 #        "https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
@@ -47,10 +47,11 @@ prepare() {
   # Arch linux logo
   msg "Replacing penguins with arches"
   #bzip2 -dk ${startdir}/logo_linux_*.bz2
-  cp ${startdir}/logo_linux_*.p?m drivers/video/logo/
+  cp ${startdir}/logo_linux_*.ppm drivers/video/logo/
+#  cp ${srcdir}/logo_linux_*.ppm drivers/video/logo/
 
   # add upstream patch
-  patch -p1 -i "${srcdir}/patch-${pkgver}"
+#  patch -p1 -i "${srcdir}/patch-${pkgver}"
 
   # add latest fixes from stable queue, if needed
   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
@@ -278,11 +279,9 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha512sums=('c3690125a8402df638095bd98a613fcf1a257b81de7611c84711d315cd11e2634ab4636302b3742aedf1e3ba9ce0fea53fe8c7d48e37865d8ee5db3565220d90'
+sha512sums=('6610eed97ffb7207c71771198c36179b8244ace7222bebb109507720e26c5f17d918079a56d5febdd8605844d67fb2df0ebe910fa2f2f53690daf6e2a8ad09c3'
             'SKIP'
-            '0979d6a503ac1f094914f56c0aed9cbcd949f68b3cc649fe6664460b9da68cb80d024c40859864d17c97de25b77c02bf08f9ab04d00d636dd6e336f32f74cdd9'
-            'SKIP'
-            '02e8f6d3e2741a9bb27e83a4dc8330a11e3cda44ed0470f1e4bc8dfe02bc50743f5739c468cb638b39ce4491abdccc88cdb94f3c6cf93494322052aa93064f77'
-            '02e8f6d3e2741a9bb27e83a4dc8330a11e3cda44ed0470f1e4bc8dfe02bc50743f5739c468cb638b39ce4491abdccc88cdb94f3c6cf93494322052aa93064f77'
+            '3841007f9bf3e01f4130b1bfe938e392bed88d5d509c6dbb979b0c5ef430385c0c051c3cf52b875c4b4e7a3befdec669b1fbccd308a559f61553341754b342c5'
+            '3841007f9bf3e01f4130b1bfe938e392bed88d5d509c6dbb979b0c5ef430385c0c051c3cf52b875c4b4e7a3befdec669b1fbccd308a559f61553341754b342c5'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            'a6db5884974191e315b8c40f6e801f20d518401b23867c733b0cb17eb1d7764676eb2deed6117422406db9e767aa966324cf1ef879b3f92aec8110a3639ea59f')
+            '6f200705e746ac0d03e4c00ba5798baff310dd7ad43395acd8b4a037e44adb9fb5dff30957718ff52e857a06e71bc902a69614741db39f09a2ec454b5be00ec3')
