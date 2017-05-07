@@ -1,4 +1,4 @@
-# date=20170428
+# date=20170507
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,7 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.10
-pkgver=4.10.13
+pkgver=4.10.14
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851
@@ -28,8 +28,8 @@ source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
 #        'config.netcup.grsec' 'config.x86_64.netcup.grsec'
         'config.netcup' 'config.x86_64.netcup'
         # standard config files for mkinitcpio ramdisk
-        'linux-titanium.preset' 'linux-titanium.install'
-        'change-default-console-loglevel.patch')
+		'linux-titanium.preset' 'linux-titanium.install')
+#        'change-default-console-loglevel.patch')
 
 validpgpkeys=(
               'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
@@ -282,10 +282,9 @@ done
 # vim:set ts=8 sts=2 sw=2 et:
 sha512sums=('c3690125a8402df638095bd98a613fcf1a257b81de7611c84711d315cd11e2634ab4636302b3742aedf1e3ba9ce0fea53fe8c7d48e37865d8ee5db3565220d90'
             'SKIP'
-            '8ada730b91ffd0ab35f619e2dd1b29cbcc090f94a2d8de04178af0b7e303abb5393090888506bf6f1f3899c27bbe50f132a42186193203fa1214130623b2e050'
+            '0979d6a503ac1f094914f56c0aed9cbcd949f68b3cc649fe6664460b9da68cb80d024c40859864d17c97de25b77c02bf08f9ab04d00d636dd6e336f32f74cdd9'
             'SKIP'
-            'd08271fd2c67c41d352ed39774297b5e54e58bc117c55220672b2031810e7064d1539ac647b1a25562bebd000a1245eb860512d44336b2855f9cbb7aaa58e49d'
-            'd08271fd2c67c41d352ed39774297b5e54e58bc117c55220672b2031810e7064d1539ac647b1a25562bebd000a1245eb860512d44336b2855f9cbb7aaa58e49d'
+            '93d68117e0306a85a2cc721f9914bdbf920443179d6443c91d5a30587c845891b1839a1bae5b732dcdfaf24354e282f29bbac3d30d1272cbdc05ff44aa557695'
+            '93d68117e0306a85a2cc721f9914bdbf920443179d6443c91d5a30587c845891b1839a1bae5b732dcdfaf24354e282f29bbac3d30d1272cbdc05ff44aa557695'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '9b716a542517d11a5a89227101a021ce75a491a6db864932daef1e054290ab4f35a9b1236b0720a8763dafb619c80f5c360d5608bc15ce647b6b66e910f318ee'
-            'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8')
+            'a6db5884974191e315b8c40f6e801f20d518401b23867c733b0cb17eb1d7764676eb2deed6117422406db9e767aa966324cf1ef879b3f92aec8110a3639ea59f')
