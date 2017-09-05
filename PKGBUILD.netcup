@@ -1,4 +1,4 @@
-# date=20170818
+# date=20170905
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -7,8 +7,8 @@
 
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
-_srcname=linux-4.12
-pkgver=4.12.8
+_srcname=linux-4.13
+pkgver=4.13.0
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851
@@ -20,8 +20,8 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
-        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
-        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
+#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
+#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
 #        "https://grsecurity.net/test/$_grsec_patch"
 #        "https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
@@ -52,7 +52,7 @@ prepare() {
   cp ${startdir}/logo_linux_*.ppm drivers/video/logo/
 
   # add upstream patch
-  patch -p1 -i "${srcdir}/patch-${pkgver}"
+#  patch -p1 -i "${srcdir}/patch-${pkgver}"
 
   # add latest fixes from stable queue, if needed
   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
@@ -208,8 +208,8 @@ _package-headers() {
   cp arch/${KARCH}/kernel/asm-offsets.s "${pkgdir}/usr/lib/modules/${_kernver}/build/arch/${KARCH}/kernel/"
 
   # add docbook makefile
-  install -D -m644 Documentation/DocBook/Makefile \
-    "${pkgdir}/usr/lib/modules/${_kernver}/build/Documentation/DocBook/Makefile"
+  #install -D -m644 Documentation/DocBook/Makefile \
+  #  "${pkgdir}/usr/lib/modules/${_kernver}/build/Documentation/DocBook/Makefile"
 
   # add dm headers
   mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/drivers/md"
@@ -280,11 +280,9 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha512sums=('8e81b41b253e63233e92948941f44c6482acb52aa3a3fd172f03a38a86f2c35b2ad4fd407acd1bc3964673eba344fe104d3a03e3ff4bf9cd1f22bd44263bd728'
+sha512sums=('a557c2f0303ae618910b7106ff63d9978afddf470f03cb72aa748213e099a0ecd5f3119aea6cbd7b61df30ca6ef3ec57044d524b7babbaabddf8b08b8bafa7d2'
             'SKIP'
-            '44e2417fe1379977b4891f74b227c2c6d6588f3726b598ad8c8a52ecaea32f56cf222b877230fc87c043583a6f230f3044fe3c9b293c67699e1743c0161004cf'
-            'SKIP'
-            '76d31c07e1f8836d22ab538171a1e37079796f74590addde3a73af256e93b5385e4cd8fdabfa6f285bea6bb136ae8fdf6600e20b98e31fc3765eceac2e7f8d8d'
-            '76d31c07e1f8836d22ab538171a1e37079796f74590addde3a73af256e93b5385e4cd8fdabfa6f285bea6bb136ae8fdf6600e20b98e31fc3765eceac2e7f8d8d'
+            '806274ce79180e821ad5761ed9b7360b9b6321f5e04576299da836df61aa7531443946092b5d48cdac7fb54168315451155d965e7818935493dc16ee773d7a49'
+            '806274ce79180e821ad5761ed9b7360b9b6321f5e04576299da836df61aa7531443946092b5d48cdac7fb54168315451155d965e7818935493dc16ee773d7a49'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '30fc8852cd6e22a49bb56e6e6192d3f1b8056962fe065433432a359639dc2d700e082806dbac7c686d87b0204f248672bcc379f73b2f8d309a8ac9bed0c91489')
+            '34928a62a059856edc9d0c87a201bfd3ff72188898340b2fdbae5c6d2d77cf07aed4cdda990171b579b9186ae7a84fb03a5ba8b318ce18d7c09e61b18b2d7b60')
