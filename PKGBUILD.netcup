@@ -1,4 +1,4 @@
-# date=20170905
+# date=20170912
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,7 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.13
-pkgver=4.13.0
+pkgver=4.13.1
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851
@@ -20,8 +20,8 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
-#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
-#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
 #        "https://grsecurity.net/test/$_grsec_patch"
 #        "https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
@@ -52,7 +52,7 @@ prepare() {
   cp ${startdir}/logo_linux_*.ppm drivers/video/logo/
 
   # add upstream patch
-#  patch -p1 -i "${srcdir}/patch-${pkgver}"
+  patch -p1 -i "${srcdir}/patch-${pkgver}"
 
   # add latest fixes from stable queue, if needed
   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
@@ -282,7 +282,9 @@ done
 # vim:set ts=8 sts=2 sw=2 et:
 sha512sums=('a557c2f0303ae618910b7106ff63d9978afddf470f03cb72aa748213e099a0ecd5f3119aea6cbd7b61df30ca6ef3ec57044d524b7babbaabddf8b08b8bafa7d2'
             'SKIP'
-            '806274ce79180e821ad5761ed9b7360b9b6321f5e04576299da836df61aa7531443946092b5d48cdac7fb54168315451155d965e7818935493dc16ee773d7a49'
-            '806274ce79180e821ad5761ed9b7360b9b6321f5e04576299da836df61aa7531443946092b5d48cdac7fb54168315451155d965e7818935493dc16ee773d7a49'
+            '392ba115d4728730d73e3c66e07f0230894f44ae71851c26ec9707d5f26bc093a6f7043592232deddf2619d2c7d305e62b168b52a142c59f10970f22bf3fbe7e'
+            'SKIP'
+            '05169d6a275d76bc03d5728e15b730861a55b60df0275f96dfba40d0a124f9f9d265d2ebe9420fa681cba130b9c679dddd18df4424b2089b526f16c57bda275c'
+            '05169d6a275d76bc03d5728e15b730861a55b60df0275f96dfba40d0a124f9f9d265d2ebe9420fa681cba130b9c679dddd18df4424b2089b526f16c57bda275c'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '34928a62a059856edc9d0c87a201bfd3ff72188898340b2fdbae5c6d2d77cf07aed4cdda990171b579b9186ae7a84fb03a5ba8b318ce18d7c09e61b18b2d7b60')
+            '8cc1473a49cedd7fa0748ce6c8584b7eebba2b3a76f7cc7dff49e923979fdba8c27486281946cb4bd5646c779cba732a93a1d342b2462912a0e6586522abc3f9')
