@@ -1,4 +1,4 @@
-# date=20171214
+# date=20171215
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,7 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.14
-pkgver=4.14.5
+pkgver=4.14.6
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851
