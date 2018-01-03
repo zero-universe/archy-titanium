@@ -1,4 +1,4 @@
-# date=20171215
+# date=20180103
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,7 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.14
-pkgver=4.14.6
+pkgver=4.14.11
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851
@@ -54,6 +54,10 @@ prepare() {
   # add upstream patch
   patch -p1 -i "${srcdir}/patch-${pkgver}"
 
+  ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
+  chmod 755 "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
+  ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
+  
   # add latest fixes from stable queue, if needed
   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
 
@@ -282,9 +286,9 @@ done
 # vim:set ts=8 sts=2 sw=2 et:
 sha512sums=('77e43a02d766c3d73b7e25c4aafb2e931d6b16e870510c22cef0cdb05c3acb7952b8908ebad12b10ef982c6efbe286364b1544586e715cf38390e483927904d8'
             'SKIP'
-            'c37b437f740fbb480766149ca1c6ddb5ee763b88b034b9b4eaf3ce000f299545ee19a93638d1a4161ab0c76ec73e1a53b2264b94213d53d6ad7dcda6bee45b8c'
+            'dbf5488f0ba4e18b253da02c5cc862096a3253689986fbf5cd89b835c94c2057f4196d8d278973254fdf6dd07629784bf1dc3bdc7d1ac3bb0682c6f9ad9d21ad'
             'SKIP'
-            '32ae017813177df2aace9f514c97dc645a38ab988e52b5996595a170e183128ad7cac74f69163219caa839b1f3ee43d5af089fd3aae08361bef5743103407606'
-            '32ae017813177df2aace9f514c97dc645a38ab988e52b5996595a170e183128ad7cac74f69163219caa839b1f3ee43d5af089fd3aae08361bef5743103407606'
+            '15e49597a060bb438b5cb295bbf2b79c9b24b0c6dcff26121f9869474f155c43471961f5aa75fc760fa267fedb6803496b09021c8cb877592f5c8ed0bf0c4c49'
+            '15e49597a060bb438b5cb295bbf2b79c9b24b0c6dcff26121f9869474f155c43471961f5aa75fc760fa267fedb6803496b09021c8cb877592f5c8ed0bf0c4c49'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '0ce0ffa84939a17ff273dca9ea30aa02f9f43853a9112d8fcacf5bf5485e1095a74b2eda18b0489a6f8617c24e434bff5f3202a38bc18d2017579ae7e85bf670')
+            '0e7d41821346c968070cb8b932efa2155bec409c6b2cedaa5a3d16263440b789e4b055942c548462cde45c24ecfbb1de418d748bb6528c18ecdd995bec2fdddc')

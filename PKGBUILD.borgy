@@ -1,4 +1,4 @@
-# date=20171215
+# date=20180103
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,7 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.14
-pkgver=4.14.6
+pkgver=4.14.11
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851
@@ -53,6 +53,10 @@ prepare() {
   # add upstream patch
   patch -p1 -i "${srcdir}/patch-${pkgver}"
 
+  ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
+  chmod 755 "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
+  ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
+  
   # add latest fixes from stable queue, if needed
   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
 
