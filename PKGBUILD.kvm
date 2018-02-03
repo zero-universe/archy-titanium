@@ -1,4 +1,4 @@
-# date=20180119
+# date=20180203
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -7,8 +7,8 @@
 
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
-_srcname=linux-4.14
-pkgver=4.14.14
+_srcname=linux-4.15
+pkgver=4.15.0
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851
@@ -20,8 +20,8 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
-        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
-        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
+#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
+#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
 #        "https://grsecurity.net/test/$_grsec_patch"
 #        "https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
@@ -50,7 +50,7 @@ prepare() {
   cp ${startdir}/logo_linux_*.ppm drivers/video/logo/
 
   # add upstream patch
-  patch -p1 -i "${srcdir}/patch-${pkgver}"
+#  patch -p1 -i "${srcdir}/patch-${pkgver}"
 
   ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
   chmod 755 "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
@@ -282,11 +282,9 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha512sums=('77e43a02d766c3d73b7e25c4aafb2e931d6b16e870510c22cef0cdb05c3acb7952b8908ebad12b10ef982c6efbe286364b1544586e715cf38390e483927904d8'
+sha512sums=('c00d92659df815a53dcac7dde145b742b1f20867d380c07cb09ddb3295d6ff10f8931b21ef0b09d7156923a3957b39d74d87c883300173b2e20690d2b4ec35ea'
             'SKIP'
-            'abc13c99eb85b2bd25f3ac07fccdad52a801118a86d3cd153a8ca6254730e5604e34261e98945352b23cf0e0a0317074a5008701d1240cc958ef4199bffd1ab6'
-            'SKIP'
-            '2c2c3226de11f6704fe404ab74e14db690ab01ff1188993aa5ea27ef897f92b7fb17baba4ee9fdbaf951dcc467f55246577594bd1b7299138b3f2a3c38e49a91'
-            '2c2c3226de11f6704fe404ab74e14db690ab01ff1188993aa5ea27ef897f92b7fb17baba4ee9fdbaf951dcc467f55246577594bd1b7299138b3f2a3c38e49a91'
+            'db475b42b3bc06e4ee4825d5ce9130054249c6a22097f6bdc2156cd85e8a1986d5da0514f582fc6b21066bc2c00484308e2941303159b94c1d1d12cfdb0462cb'
+            'db475b42b3bc06e4ee4825d5ce9130054249c6a22097f6bdc2156cd85e8a1986d5da0514f582fc6b21066bc2c00484308e2941303159b94c1d1d12cfdb0462cb'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '4e4bbe7ac6a31aae07c9449275f735daa5f0acda652331d1625c3ad8ca6d06389beab108bfa5c9d186ae8ad4b7fa017309efd082d6ff909a83caec7f5de58c05')
+            '25de572a4acabd48e5c3404f3245af61d167039d7c5f1d0807ee803c23f08da2f4e9ca130967977f13ddf4ccf070993a5121b1b97cca381cc336e5d650609d5e')
