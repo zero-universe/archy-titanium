@@ -1,4 +1,4 @@
-# date=20180203
+# date=20180204
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,7 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.15
-pkgver=4.15.0
+pkgver=4.15.1
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851
@@ -20,8 +20,8 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
-#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
-#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
 #        "https://grsecurity.net/test/$_grsec_patch"
 #        "https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
@@ -52,7 +52,7 @@ prepare() {
   cp ${startdir}/logo_linux_*.ppm drivers/video/logo/
 
   # add upstream patch
-#  patch -p1 -i "${srcdir}/patch-${pkgver}"
+  patch -p1 -i "${srcdir}/patch-${pkgver}"
 
   ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
   chmod 755 "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
@@ -286,7 +286,9 @@ done
 # vim:set ts=8 sts=2 sw=2 et:
 sha512sums=('c00d92659df815a53dcac7dde145b742b1f20867d380c07cb09ddb3295d6ff10f8931b21ef0b09d7156923a3957b39d74d87c883300173b2e20690d2b4ec35ea'
             'SKIP'
+            'd0ffcf6f8311a9b4cfa42cd07c24429af4e2e735c9a841de2baa206873652a42aa4853f19fecc82a2fcf464a39b7a62249c940287a040c4a310e4d024ae5d55f'
+            'SKIP'
             'a1ac9a5e62f6e413a7228d6174db4d523f406abe462365a88f944aa42becbc0e4b127e43d9221d57d76aed5e62832e9f3aa77db7a8e4ce454432cf213239ebf1'
             'a1ac9a5e62f6e413a7228d6174db4d523f406abe462365a88f944aa42becbc0e4b127e43d9221d57d76aed5e62832e9f3aa77db7a8e4ce454432cf213239ebf1'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '25de572a4acabd48e5c3404f3245af61d167039d7c5f1d0807ee803c23f08da2f4e9ca130967977f13ddf4ccf070993a5121b1b97cca381cc336e5d650609d5e')
+            '7c6b498c5117feb9c32d87b090c11447178c79457ab2424a1e8d2ac88711b23b13275dcf72b95a94472fcbadfdd8b621fcc00ec94aa43832307bf9951f0b84de')
