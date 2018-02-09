@@ -2,7 +2,7 @@
 # arg 2:  the old package version
 
 KERNEL_NAME=-titanium
-KERNEL_VERSION=4.15.1-1-titanium
+KERNEL_VERSION=4.15.2-1-titanium
 
 post_install () {
   # updating module dependencies
