@@ -1,4 +1,4 @@
-# date=20180209
+# date=20180218
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,7 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.15
-pkgver=4.15.2
+pkgver=4.15.4
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851
@@ -20,8 +20,8 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
-#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
-#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
 #        "https://grsecurity.net/test/$_grsec_patch"
 #        "https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
@@ -50,7 +50,7 @@ prepare() {
   cp ${startdir}/logo_linux_*.ppm drivers/video/logo/
 
   # add upstream patch
-#  patch -p1 -i "${srcdir}/patch-${pkgver}"
+  patch -p1 -i "${srcdir}/patch-${pkgver}"
 
   ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
   chmod 755 "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
@@ -282,3 +282,11 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
+sha512sums=('c00d92659df815a53dcac7dde145b742b1f20867d380c07cb09ddb3295d6ff10f8931b21ef0b09d7156923a3957b39d74d87c883300173b2e20690d2b4ec35ea'
+            'SKIP'
+            'e903b02631f5fa261db44ea2da69b6edc3afbbbbb4da5eca6abf2972b9f5aeb032d6b4b22c1313eef7763bc91987ec793b05c00c04a0ec592f61cb5a82cea296'
+            'SKIP'
+            'db475b42b3bc06e4ee4825d5ce9130054249c6a22097f6bdc2156cd85e8a1986d5da0514f582fc6b21066bc2c00484308e2941303159b94c1d1d12cfdb0462cb'
+            'db475b42b3bc06e4ee4825d5ce9130054249c6a22097f6bdc2156cd85e8a1986d5da0514f582fc6b21066bc2c00484308e2941303159b94c1d1d12cfdb0462cb'
+            '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
+            '28be8d10fafa94375171503e0cd30ece4dcd8c983914100963e7c0597590ac750cc1f81d264eb7dbdee4f096bb245308053a523ca5e53a7e5da31f0967cdcce6')
