@@ -1,4 +1,4 @@
-# date=20180312
+# date=20180321
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,7 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.15
-pkgver=4.15.9
+pkgver=4.15.12
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851
@@ -286,9 +286,9 @@ done
 # vim:set ts=8 sts=2 sw=2 et:
 sha512sums=('c00d92659df815a53dcac7dde145b742b1f20867d380c07cb09ddb3295d6ff10f8931b21ef0b09d7156923a3957b39d74d87c883300173b2e20690d2b4ec35ea'
             'SKIP'
-            '60d24d79c19ab44520e4b583c74ca30045dc72bebd426a802c84d62c369fbda5bd7016aee1f5fa3931937cd31f17d6c0867080eb26949dedbd2d9522ee13143d'
+            '5f6f43a8ac40346a88c27886e1aab1266efc7de0f1994c7bee42e8501697123c3f7217be2368c2addd2d63ab357bc426d9eab568252659341c0c9327b9179ff1'
             'SKIP'
             'a1ac9a5e62f6e413a7228d6174db4d523f406abe462365a88f944aa42becbc0e4b127e43d9221d57d76aed5e62832e9f3aa77db7a8e4ce454432cf213239ebf1'
             'a1ac9a5e62f6e413a7228d6174db4d523f406abe462365a88f944aa42becbc0e4b127e43d9221d57d76aed5e62832e9f3aa77db7a8e4ce454432cf213239ebf1'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '627a0b609703f578350316777cac62775a8f29554b6fb15cd3748aca3abd4d7a89c7dab067ec5ba792a8c72b913c16e7bbd46da93098d32d0cbd7a96442f38bc')
+            'f150c88f25b6c25ea17101d461ae8ac8f415d4b0f52119749082830e5eff8790c3d8ae5d0f5118296e4323c18a56f02e5f6d54af56447eed6c58949ab94e9272')
