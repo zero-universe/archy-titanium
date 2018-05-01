@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# date=20180427
-=======
 # date=20180501
->>>>>>> 4166
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -12,11 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.16
-<<<<<<< HEAD
-pkgver=4.16.5
-=======
 pkgver=4.16.6
->>>>>>> 4166
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851

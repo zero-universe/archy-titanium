@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# date=20180427
-=======
 # date=20180501
->>>>>>> 4166
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -12,11 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.16
-<<<<<<< HEAD
-pkgver=4.16.5
-=======
 pkgver=4.16.6
->>>>>>> 4166
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851
@@ -292,15 +284,3 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha512sums=('ab47849314b177d0eec9dbf261f33972b0d89fb92fb0650130ffa7abc2f36c0fab2d06317dc1683c51a472a9a631573a9b1e7258d6281a2ee189897827f14662'
-            'SKIP'
-<<<<<<< HEAD
-            '15c0f85c5f35c2d87a0b63767e18c52a469a81154d915c50b7c7b1c0aed81229e86b3e1cf6e021539c100b29766c47c459adb7d2fcce0da165090206832f62f9'
-=======
-            '151f3fedfb025f090e0f3d747890366933236b11d1f2bf8794c7d0309f9bb577c01fbfcd6ac073b3c49657543961592c643e896c6a57fe8df6ecde89270d0b36'
->>>>>>> 4166
-            'SKIP'
-            'da404b9d9578e1ca5fafe8cd62f111090227e48dfeba6946d1fc31545a1099ec35e9047136fe72afaf1ef636062e2a21b9d21304933d44781d4a073bd371741c'
-            'da404b9d9578e1ca5fafe8cd62f111090227e48dfeba6946d1fc31545a1099ec35e9047136fe72afaf1ef636062e2a21b9d21304933d44781d4a073bd371741c'
-            '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '3e805d3fcde06d605e2de3919267feaf78b74c13624c25003c42eb65896c35e790309377e5c4a22b590e9dcc69d35346fa96d074ff8ac249e83824363ea794fe')
