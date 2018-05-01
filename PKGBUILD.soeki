@@ -1,4 +1,4 @@
-# date=20180413
+# date=20180501
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,7 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.16
-pkgver=4.16.2
+pkgver=4.16.6
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851
@@ -60,17 +60,17 @@ prepare() {
 
   # add qualcomm driver
   #cp -a /usr/lib/firmware/ath10k/ "${srcdir}/${_srcname}"/firmware/
-  #cp -a /media/3tb1/apovis/GITHUB/ath10k-firmware.free/ "${srcdir}/${_srcname}"/firmware/
+  #cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/ "${srcdir}/${_srcname}"/firmware/
   mkdir -p "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
-  #cp -a /media/3tb1/apovis/GITHUB/ath10k-firmware.free/QCA98* "${srcdir}/${_srcname}"/firmware/
-  #cp -a /media/3tb1/apovis/GITHUB/ath10k-firmware.free/QCA99* "${srcdir}/${_srcname}"/firmware/
-  cp -a /media/3tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/board.bin "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
-  cp -a /media/3tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.66 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-1.bin
-  cp -a /media/3tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.66 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-2.bin
-  cp -a /media/3tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2/firmware-3.bin_10.2.2.39.6-1 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-3.bin
-  cp -a /media/3tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2.4/firmware-4.bin_10.2.4.48 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-4.bin
-  cp -a /media/3tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.66 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-5.bin
-  cp -a /media/3tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.66 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-6.bin
+  #cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA98* "${srcdir}/${_srcname}"/firmware/
+  #cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA99* "${srcdir}/${_srcname}"/firmware/
+  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/board.bin "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
+  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.66 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-1.bin
+  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.66 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-2.bin
+  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2/firmware-3.bin_10.2.2.39.6-1 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-3.bin
+  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2.4/firmware-4.bin_10.2.4.48 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-4.bin
+  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.66 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-5.bin
+  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.66 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-6.bin
 
   # add latest fixes from stable queue, if needed
   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
@@ -300,7 +300,7 @@ done
 # vim:set ts=8 sts=2 sw=2 et:
 sha512sums=('ab47849314b177d0eec9dbf261f33972b0d89fb92fb0650130ffa7abc2f36c0fab2d06317dc1683c51a472a9a631573a9b1e7258d6281a2ee189897827f14662'
             'SKIP'
-            '3b9e2b8019f002443c7cd6510a878ab537351842e522848bdccd185dad6ea2b78a19b5c9179cd10aacccf20941632fd42340a5a3cef48ac875e57bd6cb3d57eb'
+            '151f3fedfb025f090e0f3d747890366933236b11d1f2bf8794c7d0309f9bb577c01fbfcd6ac073b3c49657543961592c643e896c6a57fe8df6ecde89270d0b36'
             'SKIP'
             '7ebf03d12984498b78bb28a86e13851fc9e3878986ad151eb14ef85c78296d00a51a5ddc15e274a0bd20333fcc63d47974e3d48825e89a62c726cd2439590dad'
             '7ebf03d12984498b78bb28a86e13851fc9e3878986ad151eb14ef85c78296d00a51a5ddc15e274a0bd20333fcc63d47974e3d48825e89a62c726cd2439590dad'
