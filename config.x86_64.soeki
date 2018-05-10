@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 4.16.5 Kernel Configuration
+# Linux/x86 4.16.8 Kernel Configuration
 #
 CONFIG_64BIT=y
 CONFIG_X86_64=y
@@ -1734,7 +1734,7 @@ CONFIG_ATH9K_HWRNG=y
 CONFIG_ATH10K=m
 CONFIG_ATH10K_PCI=m
 # CONFIG_ATH10K_USB is not set
-# CONFIG_ATH10K_DEBUG is not set
+CONFIG_ATH10K_DEBUG=y
 # CONFIG_ATH10K_DEBUGFS is not set
 # CONFIG_WCN36XX is not set
 # CONFIG_WLAN_VENDOR_ATMEL is not set
