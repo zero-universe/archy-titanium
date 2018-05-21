@@ -1,4 +1,4 @@
-# date=20180517
+# date=20180521
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,7 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.16
-pkgver=4.16.9
+pkgver=4.16.10
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851
@@ -52,9 +52,9 @@ prepare() {
   # add upstream patch
   patch -p1 -i "${srcdir}/patch-${pkgver}"
 
-  ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
-  chmod 755 "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
-  ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
+  #ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
+  #chmod 755 "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
+  #ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
   
   # add latest fixes from stable queue, if needed
   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
@@ -284,9 +284,9 @@ done
 # vim:set ts=8 sts=2 sw=2 et:
 sha512sums=('ab47849314b177d0eec9dbf261f33972b0d89fb92fb0650130ffa7abc2f36c0fab2d06317dc1683c51a472a9a631573a9b1e7258d6281a2ee189897827f14662'
             'SKIP'
-            'd3a26957b13ba6e7e9488991cbdfe4ac20112efccbd3ed6a5c786e344731561323ec3d36e0b163debcbdcc33a8c7c545ee755b33e14c8d10e0ce3e27d90ac109'
+            '53d700ca245341cd6493ecd01af069b2015564c9d7514751348e57047838bb1a6379f065dcf21312cf8f861f5569d28e7445846b40d14c225c644a69c09da5d1'
             'SKIP'
             'bbd61d6cb11a594f13cbca93d30d4318d948deb6a9f93f7623b88daa8110d289d92d84343d257c0531d89d29e9f39bddbd04f19e006b5bdc91a44030204a5e3e'
             'bbd61d6cb11a594f13cbca93d30d4318d948deb6a9f93f7623b88daa8110d289d92d84343d257c0531d89d29e9f39bddbd04f19e006b5bdc91a44030204a5e3e'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '44131f499c15eab398f44f6c4ba73d6bb69afa152d687e80366cb3d9b0e7906fce5ea9381054d6d596717ded9418843b64446f78ff5876b7d7339557633bb3ab')
+            '25b23c014460706c1124abe8465d56fbaad476f23bfa381b3e547c101b306964215dc908e197e01012b172085885cd02a956ade23f2c5e35ad73092bd80bb447')
