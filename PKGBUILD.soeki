@@ -1,4 +1,4 @@
-# date=20180521
+# date=20180604
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -7,8 +7,8 @@
 
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
-_srcname=linux-4.16
-pkgver=4.16.10
+_srcname=linux-4.17
+pkgver=4.17.0
 pkgrel=1
 _grsecver=3.1
 _timestamp=201704210851
@@ -20,8 +20,8 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
-        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
-        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
+#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
+#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
 #        "https://grsecurity.net/test/$_grsec_patch"
 #        "https://grsecurity.net/test/${_grsec_patch}.sig"
         # the main kernel config files
@@ -52,25 +52,25 @@ prepare() {
   cp ${startdir}/logo_linux_*.ppm drivers/video/logo/
 
   # add upstream patch
-  patch -p1 -i "${srcdir}/patch-${pkgver}"
+#  patch -p1 -i "${srcdir}/patch-${pkgver}"
 
 #  ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
 #  chmod 755 "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
 #  ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
 
   # add qualcomm driver
-  #cp -a /usr/lib/firmware/ath10k/ "${srcdir}/${_srcname}"/firmware/
+#  cp -a /usr/lib/firmware/ath10k/ "${srcdir}/${_srcname}"/firmware/
   #cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/ "${srcdir}/${_srcname}"/firmware/
   mkdir -p "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
   #cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA98* "${srcdir}/${_srcname}"/firmware/
   #cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA99* "${srcdir}/${_srcname}"/firmware/
-  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/board.bin "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
-  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.66 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-1.bin
-  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.66 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-2.bin
-  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2/firmware-3.bin_10.2.2.39.6-1 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-3.bin
-  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2.4/firmware-4.bin_10.2.4.48 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-4.bin
-  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.66 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-5.bin
-  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.66 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-6.bin
+  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/board.bin "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
+  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.67 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-1.bin
+  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.67 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-2.bin
+  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2/firmware-3.bin_10.2.2.39.6-1 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-3.bin
+  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4/firmware-4.bin_10.2.4.48 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-4.bin
+  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.67 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-5.bin
+  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.67 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-6.bin
 
   # add latest fixes from stable queue, if needed
   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
@@ -298,11 +298,9 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha512sums=('ab47849314b177d0eec9dbf261f33972b0d89fb92fb0650130ffa7abc2f36c0fab2d06317dc1683c51a472a9a631573a9b1e7258d6281a2ee189897827f14662'
+sha512sums=('4d9de340a26155a89ea8773131c76220cc2057f2b5d031b467b60e8b14c1842518e2d60a863d8c695f0f7640f3f18d43826201984a238dade857b6cef79837db'
             'SKIP'
-            '53d700ca245341cd6493ecd01af069b2015564c9d7514751348e57047838bb1a6379f065dcf21312cf8f861f5569d28e7445846b40d14c225c644a69c09da5d1'
-            'SKIP'
-            '078ff71de0ca97cd2d1741d90834b78fda3775c292c9871d5793979eca4ccf2b7b0f37b674c7ebbc48a5a1e2212104f6934816de5a0c073a5c4417e9a7ba606c'
-            '078ff71de0ca97cd2d1741d90834b78fda3775c292c9871d5793979eca4ccf2b7b0f37b674c7ebbc48a5a1e2212104f6934816de5a0c073a5c4417e9a7ba606c'
+            'a4f2b64db6c7cdeac128309b21f9d20f61e9e84d8618331294578c4ad46be5b0b42364829743477e0d599949f63274785fcc66f57633712bb98f25dbcb252c7d'
+            'a4f2b64db6c7cdeac128309b21f9d20f61e9e84d8618331294578c4ad46be5b0b42364829743477e0d599949f63274785fcc66f57633712bb98f25dbcb252c7d'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '25b23c014460706c1124abe8465d56fbaad476f23bfa381b3e547c101b306964215dc908e197e01012b172085885cd02a956ade23f2c5e35ad73092bd80bb447')
+            '98fdc393c517bfce4d16fcece5e9abd2cabe9403783f00390ea4f3fa362236f24660ccaafe45a68e6a41e273f09ae1d3f39fa4335d50510393f7ed9e98445802')
