@@ -1,4 +1,4 @@
-# date=20180604
+# date=20180615
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,11 +8,8 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.17
-pkgver=4.17.0
+pkgver=4.17.1
 pkgrel=1
-_grsecver=3.1
-_timestamp=201704210851
-_grsec_patch="grsecurity-$_grsecver-$pkgver-$_timestamp.patch"
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
 license=('GPL2')
@@ -20,10 +17,8 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
-#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
-#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
-#        "https://grsecurity.net/test/$_grsec_patch"
-#        "https://grsecurity.net/test/${_grsec_patch}.sig"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
         # the main kernel config files
         'config.barch' 'config.x86_64.barch'
         # standard config files for mkinitcpio ramdisk
@@ -50,7 +45,7 @@ prepare() {
   cp ${startdir}/logo_linux_*.ppm drivers/video/logo/
 
   # add upstream patch
-#  patch -p1 -i "${srcdir}/patch-${pkgver}"
+  patch -p1 -i "${srcdir}/patch-${pkgver}"
 
   #ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
   #chmod 755 "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
@@ -63,10 +58,6 @@ prepare() {
   # remove this when a Kconfig knob is made available by upstream
   # (relevant patch sent upstream: https://lkml.org/lkml/2011/7/26/227)
   #patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
-
-  # Add grsecurity patches
-#  patch -Np1 -i "$srcdir/$_grsec_patch"
-#  rm localversion-grsec
 
   if [ "${CARCH}" = "x86_64" ]; then
     cat "${srcdir}/config.x86_64.barch" > ./.config
@@ -284,7 +275,9 @@ done
 # vim:set ts=8 sts=2 sw=2 et:
 sha512sums=('4d9de340a26155a89ea8773131c76220cc2057f2b5d031b467b60e8b14c1842518e2d60a863d8c695f0f7640f3f18d43826201984a238dade857b6cef79837db'
             'SKIP'
+            '18ebb8ed8bd7b782c7e1ed057bf18260991182cbb2c20939bc31e122afdb9f4a185f3c162134f506ed608fd1f83413a29e2db8d7cee83af4c3dc1b88c892405a'
+            'SKIP'
             'a3e32c827e0806a48758c96c83860115187ce1f4d4b2300438b91895137568af7d74f069cf70dc98bb4d772f995dd7b2863d6cf41d401cd42848337ac02dff5d'
             'a3e32c827e0806a48758c96c83860115187ce1f4d4b2300438b91895137568af7d74f069cf70dc98bb4d772f995dd7b2863d6cf41d401cd42848337ac02dff5d'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '98fdc393c517bfce4d16fcece5e9abd2cabe9403783f00390ea4f3fa362236f24660ccaafe45a68e6a41e273f09ae1d3f39fa4335d50510393f7ed9e98445802')
+            '1d38341b971f791069b299ad72d4ec61b77f0b228d10609e37781d444c2798ccec6cb15efee7944afb2bc877a34650bd8605ac09da452163d1554661f1354c24')
