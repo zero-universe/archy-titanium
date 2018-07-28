@@ -1,4 +1,4 @@
-# date=20180721
+# date=20180728
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,7 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.17
-pkgver=4.17.8
+pkgver=4.17.11
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -18,7 +18,7 @@ options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
         "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
-        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
+#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
         # the main kernel config files
         'config.x86_64.soeki' 'config.soeki'
         # standard config files for mkinitcpio ramdisk
@@ -287,9 +287,8 @@ done
 # vim:set ts=8 sts=2 sw=2 et:
 sha512sums=('4d9de340a26155a89ea8773131c76220cc2057f2b5d031b467b60e8b14c1842518e2d60a863d8c695f0f7640f3f18d43826201984a238dade857b6cef79837db'
             'SKIP'
-            '54fee6f5e85de8acb59246a4eac4479a3db03e28af23eafdebe55664e49d4c65907b52ec30274ef9055192fefc036a3f9313f1aad4e30f4b42aefb6916d31a43'
-            'SKIP'
-            'eaecfaab2e2b83e02d79801c1e8d53f5790848d45e1282357842d354242da430e5b5922e13509c67aaf333483b94ce31e59895bb15e647799e17282a2d086696'
-            'eaecfaab2e2b83e02d79801c1e8d53f5790848d45e1282357842d354242da430e5b5922e13509c67aaf333483b94ce31e59895bb15e647799e17282a2d086696'
+            '6cab8f1aecceb0491dca25afa088f9601178c8dfec51551afd34e219600bba54f65f929d9a10948cdb5595e339e096473127b55b1142e6dbe9a818149bec307d'
+            'dcd5bf17f578a213a17450ba573685d431a3c7d892f2ceeb95b9e5d41a5c9a34b70d92b63a885656fd5cd255c5dbd2405f2d312ba673f97c8fdcd5777a1def8c'
+            'dcd5bf17f578a213a17450ba573685d431a3c7d892f2ceeb95b9e5d41a5c9a34b70d92b63a885656fd5cd255c5dbd2405f2d312ba673f97c8fdcd5777a1def8c'
             '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '0b2b115e9514523c0a6af70265a6060e06cf1dd41af0b554316c37a972f5133221cd4c8401141f2031cc72a381f20577344573a2f340f1e3008b3fa97a05bee2')
+            '0fcbf8d6f2b00bf52ae3cc3a833ba2e5bc77644a766f9f973e84cc8d4cef08077f8d2e22c78c1d3fbdb6ce457f77273c206c464e7129448d763d611063b5e101')
