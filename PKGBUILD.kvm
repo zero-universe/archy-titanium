@@ -1,4 +1,4 @@
-# date=20180906
+# date=20180910
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,7 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.18
-pkgver=4.18.6
+pkgver=4.18.7
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -273,11 +273,3 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha512sums=('4d9de340a26155a89ea8773131c76220cc2057f2b5d031b467b60e8b14c1842518e2d60a863d8c695f0f7640f3f18d43826201984a238dade857b6cef79837db'
-            'SKIP'
-            '54fee6f5e85de8acb59246a4eac4479a3db03e28af23eafdebe55664e49d4c65907b52ec30274ef9055192fefc036a3f9313f1aad4e30f4b42aefb6916d31a43'
-            'SKIP'
-            '3adaaea36c6f342f0b1caca632067ea88fa3b2b9b4cdf81d172f87e7bb5b4da1fad6d883fe9590bbc2142b7c4637a02f48787a133fcb3ee563f1b769cdcdbcda'
-            '3adaaea36c6f342f0b1caca632067ea88fa3b2b9b4cdf81d172f87e7bb5b4da1fad6d883fe9590bbc2142b7c4637a02f48787a133fcb3ee563f1b769cdcdbcda'
-            '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '0b2b115e9514523c0a6af70265a6060e06cf1dd41af0b554316c37a972f5133221cd4c8401141f2031cc72a381f20577344573a2f340f1e3008b3fa97a05bee2')
