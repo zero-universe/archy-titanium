@@ -1,4 +1,4 @@
-# date=20180920
+# date=20181030
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -7,8 +7,8 @@
 
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
-_srcname=linux-4.18
-pkgver=4.18.9
+_srcname=linux-4.19
+pkgver=4.19.0
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -17,7 +17,7 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
-        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
+#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
 #        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
         # the main kernel config files
         'config.netcup' 'config.x86_64.netcup'
@@ -44,7 +44,7 @@ prepare() {
   cp ${startdir}/logo_linux_*.ppm drivers/video/logo/
 
   # add upstream patch
-  patch -p1 -i "${srcdir}/patch-${pkgver}"
+#  patch -p1 -i "${srcdir}/patch-${pkgver}"
 
 #  ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
 #  chmod 755 "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
@@ -272,10 +272,3 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha512sums=('950eb85ac743b291afe9f21cd174d823e25f11883ee62cecfbfff8fe8c5672aae707654b1b8f29a133b1f2e3529e63b9f7fba4c45d6dacccc8000b3a9a9ae038'
-            'SKIP'
-            '1ef82764f93a96e759a1b969ce965c0981f86a5d6e2376e7f637209ea1114ce2636bb41971e616973ce8a55692999086f75e465dd96deb77876e9a2fd6ceddc4'
-            '8c1b56b9b4967a7639e36df10ac81f99f949081be8dffc77156c6851b7fe9acaa1429ec5593f3f5460f2e537cb578a0180c19f4abaa9b9fefdd6cc30a3ae60ea'
-            '8c1b56b9b4967a7639e36df10ac81f99f949081be8dffc77156c6851b7fe9acaa1429ec5593f3f5460f2e537cb578a0180c19f4abaa9b9fefdd6cc30a3ae60ea'
-            '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            'f427351e0b9a24b1c1085cc9ad7c863a734b9cf1b9c17b04bc3e78e6a2df6d232ef2bcbb925d5ce90754141f15327d12e953b55bf8e81ebc1a343ec5cb158b48')
