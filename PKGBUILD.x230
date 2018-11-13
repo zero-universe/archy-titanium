@@ -1,4 +1,4 @@
-# date=20181030
+# date=20181113
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,7 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.19
-pkgver=4.19.0
+pkgver=4.19.2
 pkgrel=1
 arch=('x86_64')
 url="http://www.kernel.org/"
@@ -17,8 +17,8 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
-#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
-#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
         # the main kernel config files
         'config.x230' 'config.x86_64.x230'
         # standard config files for mkinitcpio ramdisk
@@ -44,7 +44,7 @@ prepare() {
   cp ${startdir}/logo_linux_*.ppm drivers/video/logo/
 
   # add upstream patch
-#  patch -p1 -i "${srcdir}/patch-${pkgver}"
+  patch -p1 -i "${srcdir}/patch-${pkgver}"
 
   #ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
   #chmod 755 "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
@@ -272,9 +272,3 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
-sha512sums=('ab67cc746b375a8b135e8b23e35e1d6787930d19b3c26b2679787d62951cbdbc3bb66f8ededeb9b890e5008b2459397f9018f1a6772fdef67780b06a4cb9f6f4'
-            'SKIP'
-            '24e9a64b4bfe6f2488263595be149aeebb7082646a0e02a40e6b486c8dafee41056b227943964f7ec051a6e7e2a62f1b45740e0a5bb2b42e2fe921ca50dade16'
-            '24e9a64b4bfe6f2488263595be149aeebb7082646a0e02a40e6b486c8dafee41056b227943964f7ec051a6e7e2a62f1b45740e0a5bb2b42e2fe921ca50dade16'
-            '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
-            '5aee3629f9969be102e76a8070f515701c48943f91b8e9dbbd51ae7d7726cffa662201b364965438466e69536a80cfdd4a011f1113c1bd7ef8e5d7e018edc8f5')
