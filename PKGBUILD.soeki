@@ -60,7 +60,7 @@ prepare() {
   #cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA99* "${srcdir}/${_srcname}"/firmware/
   cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/board.bin "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
   cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/board.bin "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
-  cp -a /home/apovis/00.1tb1/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4-1.0/firmware-5.bin_10.2.4-1.0-00042: "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/QCA988X/firmware-5.bin
+  cp -a /home/apovis/00.1tb1/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4-1.0/firmware-5.bin_10.2.4-1.0-00042 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-5.bin
   ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.67 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-1.bin
   ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.67 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-2.bin
   ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2/firmware-3.bin_10.2.2.39.6-1 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-3.bin
