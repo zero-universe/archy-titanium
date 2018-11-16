@@ -1,4 +1,4 @@
-=20181030
+# date=20181030
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -18,7 +18,7 @@ options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
         "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
-        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
+#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
         # the main kernel config files
         'config.x86_64.soeki' 'config.soeki'
         # standard config files for mkinitcpio ramdisk
@@ -53,18 +53,21 @@ prepare() {
   # add qualcomm driver
 #  cp -a /usr/lib/firmware/ath10k/ "${srcdir}/${_srcname}"/firmware/
   #cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/ "${srcdir}/${_srcname}"/firmware/
-  mkdir -p "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
+  #mkdir -p "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
+  mkdir -p "${srcdir}/${_srcname}"/firmware/
+  cp -a /usr/lib/firmware/ath10k "${srcdir}/${_srcname}"/firmware/
   #cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA98* "${srcdir}/${_srcname}"/firmware/
   #cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA99* "${srcdir}/${_srcname}"/firmware/
-  ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/board.bin "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
+  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/board.bin "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
+  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/board.bin "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
+  cp -a /home/apovis/00.1tb1/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4-1.0/firmware-5.bin_10.2.4-1.0-00042: "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/QCA988X/firmware-5.bin
   ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.67 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-1.bin
   ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.67 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-2.bin
   ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2/firmware-3.bin_10.2.2.39.6-1 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-3.bin
   ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4/firmware-4.bin_10.2.4.48 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-4.bin
   ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.67 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-5.bin
   ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.67 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-6.bin
-  cp -a /usr/lib/firmware/ath10k/QCA988X/hw2.0 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/
-  cp -a /usr/lib/firmware/ath10k "${srcdir}/${_srcname}"/firmware/
+  #cp -a /usr/lib/firmware/ath10k/QCA988X/hw2.0 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/
 
   # add latest fixes from stable queue, if needed
   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
@@ -287,3 +290,10 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
+sha512sums=('ab67cc746b375a8b135e8b23e35e1d6787930d19b3c26b2679787d62951cbdbc3bb66f8ededeb9b890e5008b2459397f9018f1a6772fdef67780b06a4cb9f6f4'
+            'SKIP'
+            'd2e5fccf6fa63f903290cc976716d13c545f18aa3a18196ceaca1bd83b80307951fd6692437ea99cb5d91a10b0f395b343061c248544665e6a8767c895d68e29'
+            '09578e1e23a69bbd6518a4b834e6e21b7c82d45562466e990a5f74896f18c109deec1635272045fe638f8eb3a044b15fc226ac78947ac38e756fb1aad88ffece'
+            '09578e1e23a69bbd6518a4b834e6e21b7c82d45562466e990a5f74896f18c109deec1635272045fe638f8eb3a044b15fc226ac78947ac38e756fb1aad88ffece'
+            '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
+            'd2c4edf49587be9e8338a10d27b32d372ddc55c1177c5e6ec9bafd1934f2c0f503217efbcb8b060b3f6862a973fedb641c5e50ca83920048a06725a4c3594ee0')
