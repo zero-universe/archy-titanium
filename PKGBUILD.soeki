@@ -59,14 +59,14 @@ prepare() {
   #cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA98* "${srcdir}/${_srcname}"/firmware/
   #cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA99* "${srcdir}/${_srcname}"/firmware/
   cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/board.bin "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
-  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/board.bin "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
-  cp -a /home/apovis/00.1tb1/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4-1.0/firmware-5.bin_10.2.4-1.0-00042 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-5.bin
+  #cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/board.bin "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
+  cp /home/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.1/main/firmware-2.bin_999.999.0.636 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-2.bin
+  cp /home/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2/firmware-3.bin_10.2.2.39.6-1 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-3.bin
+  cp /home/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4/firmware-4.bin_10.2.4.48 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-4.bin
+  cp /home/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4/firmware-5.bin_10.2.4.70-2 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-5.bin
+  #cp -a /home/apovis/00.1tb1/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4-1.0/firmware-5.bin_10.2.4-1.0-00042 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-5.bin
   ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.67 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-1.bin
   ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.67 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-2.bin
-  ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2/firmware-3.bin_10.2.2.39.6-1 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-3.bin
-  ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4/firmware-4.bin_10.2.4.48 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-4.bin
-  ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.67 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-5.bin
-  ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.67 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-6.bin
   #cp -a /usr/lib/firmware/ath10k/QCA988X/hw2.0 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/
 
   # add latest fixes from stable queue, if needed
