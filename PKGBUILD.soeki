@@ -1,4 +1,4 @@
-# date=20181209
+# date=20181213
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,7 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-4.19
-pkgver=4.19.8
+pkgver=4.19.9
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -18,7 +18,6 @@ options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
         "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
-#        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
         # the main kernel config files
         'config.x86_64.soeki' 'config.soeki'
         # standard config files for mkinitcpio ramdisk
@@ -50,24 +49,6 @@ prepare() {
 #  chmod 755 "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
 #  ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
 
-  # add qualcomm driver
-#  cp -a /usr/lib/firmware/ath10k/ "${srcdir}/${_srcname}"/firmware/
-  #cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/ "${srcdir}/${_srcname}"/firmware/
-  #mkdir -p "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
-  mkdir -p "${srcdir}/${_srcname}"/firmware/
-  cp -a /usr/lib/firmware/ath10k "${srcdir}/${_srcname}"/firmware/
-  #cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA98* "${srcdir}/${_srcname}"/firmware/
-  #cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware.free/QCA99* "${srcdir}/${_srcname}"/firmware/
-  cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/board.bin "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
-  #cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/board.bin "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/
-  cp /home/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.1/main/firmware-2.bin_999.999.0.636 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-2.bin
-  cp /home/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2/firmware-3.bin_10.2.2.39.6-1 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-3.bin
-  cp /home/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4/firmware-4.bin_10.2.4.48 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-4.bin
-  cp /home/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4/firmware-5.bin_10.2.4.70-2 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-5.bin
-  #cp -a /home/apovis/00.1tb1/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4-1.0/firmware-5.bin_10.2.4-1.0-00042 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-5.bin
-  ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.67 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-1.bin
-  ##cp -a /media/1tb1/apovis/GITHUB/ath10k-firmware/QCA988X/hw2.0/10.2.4.70/firmware-5.bin_10.2.4.70.67 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/hw2.0/firmware-2.bin
-  #cp -a /usr/lib/firmware/ath10k/QCA988X/hw2.0 "${srcdir}/${_srcname}"/firmware/ath10k/QCA988X/
 
   # add latest fixes from stable queue, if needed
   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
