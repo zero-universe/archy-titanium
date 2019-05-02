@@ -1,13 +1,13 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 5.0.1 Kernel Configuration
+# Linux/x86 5.0.10 Kernel Configuration
 #
 
 #
-# Compiler: gcc (GCC) 8.2.1 20181127
+# Compiler: gcc (GCC) 8.3.0
 #
 CONFIG_CC_IS_GCC=y
-CONFIG_GCC_VERSION=80201
+CONFIG_GCC_VERSION=80300
 CONFIG_CLANG_VERSION=0
 CONFIG_CC_HAS_ASM_GOTO=y
 CONFIG_IRQ_WORK=y
@@ -1686,6 +1686,7 @@ CONFIG_SERIAL_NONSTANDARD=y
 # CONFIG_N_HDLC is not set
 # CONFIG_N_GSM is not set
 # CONFIG_TRACE_SINK is not set
+# CONFIG_LDISC_AUTOLOAD is not set
 CONFIG_DEVMEM=y
 # CONFIG_DEVKMEM is not set
 
@@ -1734,7 +1735,6 @@ CONFIG_HW_RANDOM_INTEL=m
 # CONFIG_HW_RANDOM_AMD is not set
 # CONFIG_HW_RANDOM_VIA is not set
 # CONFIG_NVRAM is not set
-# CONFIG_R3964 is not set
 # CONFIG_APPLICOM is not set
 # CONFIG_MWAVE is not set
 # CONFIG_RAW_DRIVER is not set

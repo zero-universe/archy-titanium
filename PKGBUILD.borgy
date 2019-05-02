@@ -1,4 +1,4 @@
-# date=20190422
+# date=20190502
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,7 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-5.0
-pkgver=5.0.9
+pkgver=5.0.10
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
