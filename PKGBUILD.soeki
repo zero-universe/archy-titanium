@@ -7,7 +7,7 @@
 
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
-_srcname=linux-5.1
+_srcname=linux-5.2
 pkgver=5.2.1
 pkgrel=1
 arch=('i686' 'x86_64')
