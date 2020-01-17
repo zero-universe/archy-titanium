@@ -1,4 +1,4 @@
-# date=20190918
+# date=20200115
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -7,8 +7,8 @@
 
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
-_srcname=linux-5.3
-pkgver=5.3
+_srcname=linux-5.4
+pkgver=5.4.12
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -16,17 +16,11 @@ license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
-        "https://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.sign"
         "https://www.kernel.org/pub/linux/kernel/v5.x/patch-${pkgver}.xz"
         # the main kernel config files
         'config.netcup' 'config.x86_64.netcup'
         # standard config files for mkinitcpio ramdisk
 		'linux-titanium.preset' 'linux-titanium.install')
-
-validpgpkeys=(
-              'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
-              '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman
-             )
 
 _kernelname=${pkgbase#linux}
 
@@ -271,3 +265,9 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
+sha512sums=('9f60f77e8ab972b9438ac648bed17551c8491d6585a5e85f694b2eaa4c623fbc61eb18419b2656b6795eac5deec0edaa04547fc6723fbda52256bd7f3486898f'
+            'a5f247f9d8acb855936278679469de199a49366d79ea63b2a987a2bebb4fe5b7eeb698181fe6d561fd3de3c0736e42fd499c881abd6cd5fee996506133e4d143'
+            '1a6b098fd267f8d42ecb45591bbd415208d858dab4b164ea800d215d344330b8a0ab7d27046482e345205d63c0013e17016548df8d109134ea203a636b3100e6'
+            '1a6b098fd267f8d42ecb45591bbd415208d858dab4b164ea800d215d344330b8a0ab7d27046482e345205d63c0013e17016548df8d109134ea203a636b3100e6'
+            '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
+            '63a0f7839f408546b7c96d56148d048d7436429cfd40e3b94ada7b3196a491b5cb739476807a97872df61a003a1ce78b40d6ad9b806379a834952447fc3ceff1')
