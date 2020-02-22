@@ -1,4 +1,4 @@
-# date=20200115
+# date=20200222
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -7,8 +7,8 @@
 
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
-_srcname=linux-5.3
-pkgver=5.4.12
+_srcname=linux-5.5
+pkgver=5.5.5
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -48,7 +48,7 @@ prepare() {
   #ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
   #chmod 755 "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
   #ls -lh "${srcdir}/${_srcname}"/tools/objtool/sync-check.sh
-  
+
   # add latest fixes from stable queue, if needed
   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
 
@@ -153,7 +153,7 @@ _package() {
   mv "${pkgdir}/lib" "${pkgdir}/usr/"
 
   # add vmlinux
-  install -D -m644 vmlinux "${pkgdir}/usr/lib/modules/${_kernver}/build/vmlinux" 
+  install -D -m644 vmlinux "${pkgdir}/usr/lib/modules/${_kernver}/build/vmlinux"
 }
 
 _package-headers() {
@@ -241,7 +241,7 @@ _package-headers() {
 
   # remove unneeded architectures
   rm -rf "${pkgdir}"/usr/lib/modules/${_kernver}/build/arch/{alpha,arc,arm,arm26,arm64,avr32,blackfin,c6x,cris,frv,h8300,hexagon,ia64,m32r,m68k,m68knommu,metag,mips,microblaze,mn10300,openrisc,parisc,powerpc,ppc,s390,score,sh,sh64,sparc,sparc64,tile,unicore32,um,v850,xtensa}
-  
+
   # remove a files already in linux-docs package
   rm -f "${pkgdir}/usr/lib/modules/${_kernver}/build/Documentation/kbuild/Kconfig.recursion-issue-01"
   rm -f "${pkgdir}/usr/lib/modules/${_kernver}/build/Documentation/kbuild/Kconfig.recursion-issue-02"

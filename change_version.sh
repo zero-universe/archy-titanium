@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 KERNEL="4.8"
 
@@ -18,7 +18,7 @@ sed -i "s|date=.*|date=${DATE_NEW}|g" PKGBUILD.*
 
 sed -i "s|pkgver=.*|pkgver=${KVER_NEW}|" PKGBUILD.*
 sed -i "s|${KVER_OLD}|${KVER_NEW}|" linux-titanium.install
-sed -i "s|${KVER_OLD}|${KVER_NEW}|" linux-titanium.install.pkg
+#sed -i "s|${KVER_OLD}|${KVER_NEW}|" linux-titanium.install.pkg
 
 #sed -i "s|_timestamp=.*|_timestamp=${TIMESTAMP_NEW}|" PKGBUILD.*
 
