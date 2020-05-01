@@ -1,4 +1,4 @@
-# date=20200402
+# date=20200501
 # Maintainer: Oleg Lusan <zero.universe@gmail.com>
 
 # $Id: PKGBUILD 260664 2016-03-03 15:54:53Z tpowa $
@@ -8,7 +8,7 @@
 #pkgbase=linux               # Build stock -ARCH kernel
 pkgbase=linux-titanium       # Build kernel titanium
 _srcname=linux-5.6
-pkgver=5.6.1
+pkgver=5.6.8
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -266,3 +266,9 @@ for _p in ${pkgname[@]}; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
+sha512sums=('80846fe2b4e4a7ff471d2dde28a8216ae807a3209f959e93d39ea4fc9a189ea28ec3db9d303b3fe15a28c2cb90e7446876678e93e23353c2d6f262e364a06bc9'
+            '1cbcafdf3ea0213c0ec29fb2b87dccb5773cec644d170e1e3c8b1a79f23828a697059be85d83842e263c5115c1d40bc14fbe151315d9d1f92d3eb2c17e996881'
+            '832a1f6731f710ff69d5440546786004eb1a540d4b414e2653c2807eed84a1222a5df5e5220562943910a2b815bf4597db7e328020b5446e8ec657e56778cf60'
+            '832a1f6731f710ff69d5440546786004eb1a540d4b414e2653c2807eed84a1222a5df5e5220562943910a2b815bf4597db7e328020b5446e8ec657e56778cf60'
+            '8094dbade2e0c0bb55982b387701fb9c89188c5351593b727e005002da003f2cf5e585e970a66e95259f48f57a7cc72a60bb65ffb8ee67a5bd2e41aa80c7e9a9'
+            '6c589b02386f683c31227b1532f0151d53a369673050ead0134d8bb0c99f31ba457e991de0644b0ceff62b3899319fcd0793e830636d990b2a0e747b5acaa8dc')

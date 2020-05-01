@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 5.6.1 Kernel Configuration
+# Linux/x86 5.6.8 Kernel Configuration
 #
 
 #
@@ -1455,7 +1455,7 @@ CONFIG_DM_PERSISTENT_DATA=m
 # CONFIG_DM_UNSTRIPED is not set
 CONFIG_DM_CRYPT=m
 CONFIG_DM_SNAPSHOT=m
-CONFIG_DM_THIN_PROVISIONING=m
+# CONFIG_DM_THIN_PROVISIONING is not set
 CONFIG_DM_CACHE=m
 CONFIG_DM_CACHE_SMQ=m
 # CONFIG_DM_WRITECACHE is not set
